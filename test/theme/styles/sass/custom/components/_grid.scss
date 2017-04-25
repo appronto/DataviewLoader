@@ -1,0 +1,50 @@
+.mx-grid {
+	/* Styles here */
+	//background-color: $bg-color-secondary;
+
+	.mx-grid-controlbar {
+		/* Styles here */
+		//background-color: $bg-color-secondary;
+		// Paging
+		.mx-grid-pagingbar {
+			/* Styles here */
+			//background-color: $bg-color-secondary;
+			// Buttons
+			.mx-button {
+				padding: 0px;
+				min-width: auto;
+			&:hover {
+				/* Styles here */
+			}
+		}
+
+		// Text Paging .. to .. to ..
+		.mx-grid-paging-status {
+			/* Styles here */
+		}
+	}
+
+	.mx-grid-searchbar {
+		/* Styles here */
+		.mx-grid-search-item {
+			/* Styles here */
+			.mx-grid-search-label {
+				/* Styles here */
+				}
+			}
+			.mx-grid-search-input {
+				/* Styles here */
+				.form-control {
+					/* Styles here */
+				}
+				.mx-button {
+					/* Styles here */
+				}
+			}
+		}
+	}
+}
+
+.mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input .form-control, .mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input .form-disabled p, .form-disabled .mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input p {
+	font-size: 14px;
+}

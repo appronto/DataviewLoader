@@ -1,0 +1,1604 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900");
+/* ==========================================================================
+   Base
+
+   Default settings
+========================================================================== */
+body {
+  /* Styles here */
+}
+
+a {
+  /* Styles here */
+}
+
+a:hover {
+  /* Styles here */
+}
+
+a:focus {
+  /* Styles here */
+}
+
+a:active,
+a:hover {
+  /* Styles here */
+}
+
+.noGutter {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+/* ==========================================================================
+   Buttons
+
+   Default Bootstrap and Mendix Buttons
+========================================================================== */
+button:focus {
+  outline: none !important;
+}
+
+.btn,
+.mx-button {
+  position: relative;
+  height: 36px;
+  margin: 0;
+  min-width: 64px;
+  padding: 0 16px;
+  display: inline-block;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle;
+  border: none;
+  border-radius: 2px;
+  margin: 4px;
+}
+
+.btn:hover, .btn:focus, .btn:active,
+.mx-button:hover,
+.mx-button:focus,
+.mx-button:active {
+  /* Styles here */
+}
+
+.mx-link {
+  font-weight: 500;
+}
+
+.mx-link:hover {
+  text-decoration: none;
+}
+
+.mx-link a:hover, .mx-link a :active {
+  text-decoration: none !important;
+}
+
+.btn img,
+.mx-button img,
+.mx-link img {
+  width: 90px;
+  height: 60px;
+}
+
+.btn-link {
+  margin-top: 16px !important;
+  color: #2159a6 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  margin: 0px;
+  padding: 0px;
+  margin-right: 8px;
+}
+
+.btn-link:hover {
+  background-color: transparent !important;
+  color: #444;
+  text-decoration: none;
+}
+
+.btn-link:active {
+  color: #444;
+  text-decoration: none;
+}
+
+.btn-default {
+  background: #e8e8e8;
+  color: #444;
+  border: none;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /* Styles here */
+}
+
+.btn-default:hover {
+  background: #cfcfcf;
+  color: #444;
+  border: none;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+.btn-secondary {
+  color: #FFF;
+  background: #FE7818 !important;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+  color: #FFF;
+}
+
+.btn-inverse {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /* Styles here */
+}
+
+.btn-inverse:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+.btn-inverse img {
+  width: 90px;
+  height: 60px;
+}
+
+.btn-success {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /* Styles here */
+}
+
+.btn-success:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+.btn-info {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /* Styles here */
+}
+
+.btn-info:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+.btn-warning {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /* Styles here */
+}
+
+.btn-warning:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+.btn-danger {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  /* Styles here */
+}
+
+.btn-danger:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+
+.mx-dateinput-select-button {
+  background: none !important;
+  color: #2159a6;
+}
+
+.mx-dateinput-select-button:hover {
+  color: #2159a6;
+}
+
+.mx-listview .mx-button.mx-listview-clear-button {
+  background: none !important;
+  color: #2159a6;
+}
+
+/* ==========================================================================
+   Buttons
+
+   Flat button
+========================================================================== */
+.flat-button.mx-button {
+  color: #2159a6 !important;
+  font-weight: 700;
+  background-color: transparent !important;
+  box-shadow: 0 0px 0px 0 transparent;
+}
+
+.flat-button.mx-button:hover, .flat-button.mx-button:focus, .flat-button.mx-button:active {
+  /* Styles here */
+}
+
+.flat-button-inverse.mx-button {
+  color: #283139 !important;
+  font-weight: 700;
+  background-color: transparent !important;
+  box-shadow: 0 0px 0px 0 transparent;
+}
+
+.flat-button-inverse.mx-button:hover, .flat-button-inverse.mx-button:focus, .flat-button-inverse.mx-button:active {
+  /* Styles here */
+}
+
+.btn-primary.btn-bordered {
+  background-color: #2159a6;
+}
+
+/* ==========================================================================
+   Datagrid Default
+
+   Default Mendix Datagrid Widget. The datagrid shows a list of objects in a grid
+========================================================================== */
+.mx-datagrid {
+  /* Styles here */
+}
+
+.mx-datagrid .mx-datagrid-head-table {
+  /* Styles here */
+}
+
+.mx-datagrid .mx-datagrid-head-table th {
+  border-color: #4a4a4a;
+}
+
+.mx-datagrid .mx-datagrid-head-table .mx-datagrid-head-wrapper {
+  /* Styles here */
+}
+
+.mx-datagrid .mx-datagrid-body-table {
+  /* Styles here */
+}
+
+.datagrid-hover.mx-datagrid {
+  border: none;
+}
+
+/* ==========================================================================
+   Dataview
+
+   Default Mendix Dataview Widget. The data view is used for showing the contents of exactly one object
+========================================================================== */
+.mx-dataview {
+  /* Styles here */
+}
+
+.mx-dataview .mx-dataview-controls {
+  /* Styles here */
+}
+
+.mx-grid {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-pagingbar {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-pagingbar .mx-button {
+  padding: 0px;
+  min-width: auto;
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-pagingbar .mx-button:hover {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-pagingbar .mx-grid-paging-status {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-searchbar {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-searchbar .mx-grid-search-item {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-label {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-searchbar .mx-grid-search-input {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-searchbar .mx-grid-search-input .form-control {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-controlbar .mx-grid-searchbar .mx-grid-search-input .mx-button {
+  /* Styles here */
+}
+
+.mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input .form-control, .mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input .form-disabled p, .form-disabled .mx-grid .mx-grid-searchbar .mx-grid-search-item .mx-grid-search-input p {
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   Groupbox
+
+   Default Mendix Groupboxes
+========================================================================== */
+.mx-groupbox {
+  border: none;
+}
+
+.mx-groupbox > .mx-groupbox-header {
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #808080;
+  font-weight: 500;
+  color: #444;
+}
+
+.mx-groupbox > .mx-groupbox-header .mx-groupbox-collapse-icon {
+  font-size: 12px;
+}
+
+.mx-groupbox > .mx-groupbox-body {
+  border: none;
+}
+
+.mx-groupbox .mx-groupbox-header + .mx-groupbox-body {
+  /* Styles here */
+}
+
+.mx-groupbox.collapsed > .mx-groupbox-header {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Inputs
+========================================================================== */
+.form-control {
+  padding: 6px 8px 6px 0px;
+  border: none;
+  border-bottom: 1px solid;
+  border-color: #aaaaaa;
+  font-weight: 300;
+  border-radius: 0px;
+  height: 32px;
+}
+
+textarea.form-control {
+  background-color: #FFFFFF;
+  font-size: 13px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-color: white;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-bottom: 2px solid #2159a6;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  padding-right: 12px;
+}
+
+.form-group .row label {
+  font-weight: bold;
+}
+
+.form-group .row {
+  margin-bottom: 8px;
+}
+
+.form-group .control-label {
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.form-control-static {
+  font-size: 12px;
+}
+
+.input-group-addon {
+  background: none;
+  border: none;
+}
+
+.textarea.form-control {
+  border: 1px solid;
+  border-color: white;
+  padding: 4px;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   Listview
+
+   Default Mendix Listview Widget. The list view shows a list of objects arranged vertically. Each object is shown using a template
+========================================================================== */
+.mx-listview > .mx-button {
+  color: #2159a6 !important;
+  background-color: transparent !important;
+  box-shadow: 0 0px 0px 0 transparent;
+}
+
+.mx-listview > .mx-button:hover {
+  background: #e8e8e8 !important;
+  color: #444;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Listview Hover
+
+   Default Mendix Listview Widget with hover
+========================================================================== */
+/* ==========================================================================
+   Listview Lined
+
+   Default Mendix Listview Widget with only border bottom in listview item
+========================================================================== */
+.listview-lined.mx-listview .mx-listview-searchbar {
+  margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   Listview Striped
+
+   Default Mendix Listview Widget with striped listview items
+========================================================================== */
+/* ==========================================================================
+   Listview Seperated
+
+   Default Mendix Listview Widget with listview items seperated
+========================================================================== */
+/* ==========================================================================
+   Listview Stylingless
+
+   Default Mendix Listview Widget with listview items seperated
+========================================================================== */
+/* ==========================================================================
+	Listview Colunm Header
+
+	Custom made Column header where the searchbar is above.
+===========================================================================*/
+.mx-layoutcontainer .mx-placeholder .mx-layoutgrid .mx-layoutgrid .listviewHeaderColumn {
+  width: 100%;
+  position: absolute;
+  margin-top: -48px;
+}
+
+/* ==========================================================================
+   Modals
+
+   Default Mendix Modals. Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults
+========================================================================== */
+.modal-dialog {
+  /* Styles here */
+}
+
+.modal-dialog .modal-content {
+  /* Styles here */
+}
+
+.modal-dialog .modal-content .modal-header {
+  /* Styles here */
+}
+
+.modal-dialog .modal-content .modal-header h4 {
+  /* Styles here */
+}
+
+.modal-dialog .modal-content .modal-header .close {
+  /* Styles here */
+}
+
+.modal-dialog .modal-content .modal-body {
+  /* Styles here */
+}
+
+.modal-dialog .modal-content .modal-footer {
+  /* Styles here */
+}
+
+/* Default Mendix Window Modal */
+/* Default Mendix Login Modal */
+.mx-login {
+  /* Styles here */
+}
+
+.mx-login .modal-body {
+  /* Styles here */
+}
+
+.mx-login .modal-content {
+  /* Styles here */
+}
+
+.mx-login .modal-header,
+.mx-login .modal-footer {
+  /* Styles here */
+}
+
+.mx-login button {
+  /* Styles here */
+}
+
+.mx-login h4 {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Navigation
+
+   Default Mendix Navigation Bar
+========================================================================== */
+.mx-navbar {
+  /* Styles here */
+}
+
+.mx-navbar ul.nav {
+  /* Styles here */
+}
+
+.mx-navbar ul.nav > li.mx-navbar-item > a {
+  color: #444;
+}
+
+.mx-navbar ul.nav > li.mx-navbar-item > a:hover, .mx-navbar ul.nav > li.mx-navbar-item > a:focus, .mx-navbar ul.nav > li.mx-navbar-item > a.active {
+  background: none;
+  color: #2159a6;
+}
+
+.mx-navbar ul.nav > li.mx-navbar-item > a.active {
+  /* Styles here */
+}
+
+.mx-navbar ul.nav > li.mx-navbar-item > a .mx-navbar-submenu:before {
+  /* Dropdown Menu */
+}
+
+.mx-navbar ul.nav > .mx-navbar-item.open .dropdown-menu > li.mx-navbar-subitem.active a {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Navigation
+
+   Default Mendix Navigation Tree
+========================================================================== */
+.mx-navigationtree {
+  background-color: #FFF;
+}
+
+.mx-navigationtree .navbar-inner ul {
+  /* Styles here */
+}
+
+.mx-navigationtree .navbar-inner ul li {
+  /* Styles here */
+}
+
+.mx-navigationtree .navbar-inner ul li a {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border-style: none;
+  padding: 15px;
+}
+
+.mx-navigationtree .navbar-inner ul li a:hover,
+.mx-navigationtree .navbar-inner ul li a:focus,
+.mx-navigationtree .navbar-inner ul li a.active {
+  /* Styles here */
+}
+
+.mx-navigationtree .navbar-inner ul li a.active {
+  border-style: none;
+}
+
+.mx-navigationtree li.mx-navigationtree-has-items {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Navigation
+
+   Default Mendix Simple Menu Bar
+========================================================================== */
+.mx-menubar {
+  background-color: #2b3d51;
+}
+
+.mx-menubar ul.mx-menubar-list {
+  /* Styles here */
+}
+
+.mx-menubar ul.mx-menubar-list li.mx-menubar-item {
+  /* Styles here */
+}
+
+.mx-menubar ul.mx-menubar-list li.mx-menubar-item a {
+  color: #a9bcd2;
+}
+
+.mx-menubar ul.mx-menubar-list li.mx-menubar-item:hover a,
+.mx-menubar ul.mx-menubar-list li.mx-menubar-item:focus a,
+.mx-menubar ul.mx-menubar-list li.mx-menubar-item.active a {
+  color: #FFF;
+  background-color: #344a62;
+}
+
+.mx-menubar ul.mx-menubar-list li.mx-menubar-item.active a {
+  color: #FFF;
+  background-color: #344a62;
+}
+
+/* ==========================================================================
+   Navigation List
+
+   Default Mendix Navigation List Widget. A navigation list can be used to attach an action to an entire row. Such a row is called a navigation list item
+========================================================================== */
+.mx-navigationlist {
+  /* Styles here */
+}
+
+.mx-navigationlist .mx-navigationlist-item {
+  /* Styles here */
+}
+
+.mx-navigationlist .mx-navigationlist-item:hover {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Tab Container
+
+   Default Mendix Tab Container Widget. Tab containers are used to show information categorized into multiple tab pages. 
+   This can be very useful if the amount of information that has to be displayed is larger than the amount of space on the screen
+========================================================================== */
+.mx-tabcontainer {
+  /* Styles here */
+}
+
+.mx-tabcontainer .mx-tabcontainer-tabs {
+  /* Styles here */
+}
+
+.mx-tabcontainer .mx-tabcontainer-tabs > li > a {
+  /* Styles here */
+}
+
+.mx-tabcontainer .mx-tabcontainer-tabs > li > a:hover, .mx-tabcontainer .mx-tabcontainer-tabs > li > a:focus {
+  outline: none !important;
+}
+
+.mx-tabcontainer .mx-tabcontainer-tabs > li.active > a,
+.mx-tabcontainer .mx-tabcontainer-tabs > li.active > a:hover,
+.mx-tabcontainer .mx-tabcontainer-tabs > li.active > a:focus {
+  /* Styles here */
+}
+
+.mx-tabcontainer .mx-tabcontainer-content {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Tables
+
+   Default Mendix Table Widget. Tables can be used to lend structure to a page. They contain a number of rows (tr) and columns, the intersection of which is called a cell (td). Each cell can contain widgets
+========================================================================== */
+table.mx-table {
+  /* Styles here */
+}
+
+table.mx-table > tbody > tr {
+  /* Styles here */
+}
+
+table.mx-table > tbody > tr > th {
+  /* Styles here */
+}
+
+table.mx-table > tbody > tr > th > label {
+  /* Styles here */
+}
+
+table.mx-table > tbody > tr > td {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Templategrid
+
+   Default Mendix Templategrid Widget. The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. The template grid has a lot in common with the data grid. The main difference is that the objects are shown in templates (a sort of small data view) instead of rows
+========================================================================== */
+.mx-templategrid {
+  /* Styles here */
+}
+
+.mx-templategrid .mx-templategrid-item {
+  /* Styles here */
+}
+
+.mx-templategrid .mx-templategrid-item:hover {
+  /* Styles here */
+}
+
+.mx-templategrid .mx-templategrid-item.selected {
+  /* Styles here */
+}
+
+.mx-templategrid .mx-templategrid-item.selected:hover {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Typography
+========================================================================== */
+p {
+  /* Styles here */
+}
+
+label {
+  /* Styles here */
+}
+
+.mx-title {
+  color: #444 !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  /* Styles here */
+}
+
+.text-light, .text-light > *, .text-light label {
+  font-weight: 100;
+}
+
+.text-normal, .text-normal > *, .text-normal label {
+  font-weight: normal;
+}
+
+.text-semibold, .text-semibold > *, .text-semibold label {
+  font-weight: 500;
+}
+
+.text-bold, .text-bold > *, .text-bold label {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-white {
+  color: #FFF;
+}
+
+/* ==========================================================================
+   Regions
+
+   Used for navigation layouts
+========================================================================== */
+.region-topbar {
+  min-height: 70px;
+  border-style: none;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+  background: #fff;
+  position: relative;
+  z-index: 100;
+}
+
+.region-topbar > .mx-layoutcontainer-wrapper {
+  padding: 0;
+}
+
+.region-topbar .toggle-btn {
+  color: #FFF;
+  border-color: #FFF;
+}
+
+.region-topbar .toggle-btn:focus, .region-topbar .toggle-btn:hover, .region-topbar .toggle-btn:active, .region-topbar .toggle-btn.active {
+  background-color: shade(#2159a6, 40);
+}
+
+.region-topbar .navbar-right .mx-appswitcher-button-placeholder,
+.region-topbar .navbar-right .mx-profilemenu-button-placeholder {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-color: #004483;
+  -webkit-transition: background-color .2s ease;
+  -o-transition: background-color .2s ease;
+  transition: background-color .2s ease;
+}
+
+.region-topbar .navbar-right .mx-appswitcher-button-placeholder:hover, .region-topbar .navbar-right .mx-appswitcher-button-placeholder:focus,
+.region-topbar .navbar-right .mx-profilemenu-button-placeholder:hover,
+.region-topbar .navbar-right .mx-profilemenu-button-placeholder:focus {
+  background-color: #004483;
+}
+
+.region-sidebar,
+.layout-sidebar-responsive .region-sidebar-fixed {
+  background-color: #FFF;
+  border-right: 1px solid #D8D8D8;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 2px 4px 8px rgba(0, 0, 0, 0.28);
+  -webkit-transition: all .35s ease 0s;
+  -o-transition: all .35s ease 0s;
+  transition: all .35s ease 0s;
+}
+
+.region-sidebar > .mx-layoutcontainer-wrapper,
+.layout-sidebar-responsive .region-sidebar-fixed > .mx-layoutcontainer-wrapper {
+  padding: 0;
+}
+
+.mx-scrollcontainer-move-in {
+  border-right: 1px solid #D8D8D8;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 2px 4px 8px rgba(0, 0, 0, 0.28);
+}
+
+.profile-phone .region-sidebar {
+  transform: none;
+  box-shadow: none;
+  border-right: none;
+  transition: none;
+}
+
+.mx-navbar ul.nav > li.mx-navbar-item > a {
+  color: #444;
+}
+
+/* ==========================================================================
+   Navbar Brand
+
+   Used to style your app brand and logo
+========================================================================== */
+.navbar-brand {
+  min-height: 70px;
+  padding: 0;
+  line-height: 70px;
+}
+
+.navbar-brand img {
+  width: 164px !important;
+  height: 50px !important;
+}
+
+.navbar-brand a {
+  color: #FFF;
+  font-size: 20px;
+}
+
+/* ==========================================================================
+	Padding sizes for containers 
+===========================================================================*/
+.no-padding {
+  padding: 0px;
+}
+
+.small-padding {
+  padding: 8px;
+}
+
+.mid-padding {
+  padding: 16px;
+}
+
+.large-padding {
+  padding: 24px;
+}
+
+.small-padding-left {
+  padding-left: 8px !important;
+}
+
+.mid-padding-left {
+  padding-left: 16px !important;
+}
+
+.large-padding-left {
+  padding-left: 24px !important;
+}
+
+.mid-padding-right {
+  padding-right: 16px !important;
+}
+
+/* ==========================================================================
+   Layout
+
+   Default Mendix Layout
+========================================================================== */
+/* ==========================================================================
+   Listview for phone and tablet
+========================================================================== */
+.profile-phone,
+.profile-tablet {
+  /* Listview Load More button */
+}
+
+.profile-phone .mx-listview .mx-listview-searchbar,
+.profile-tablet .mx-listview .mx-listview-searchbar {
+  /* Reset Search Button - default hidden */
+  /* Search Field */
+}
+
+/* ==========================================================================
+   Header
+
+   Default Mendix Header for Mobile 
+========================================================================== */
+body .mx-header {
+  border-style: none;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+body .mx-header .mx-header-left .mx-link a {
+  color: #e8e8e8;
+}
+
+/* ==========================================================================
+   Tabcontainer
+
+   Default Mendix Tabcontainer for Mobile 
+========================================================================== */
+/* ==========================================================================
+   Special styles for presenting Page Template Dashboard
+========================================================================== */
+.page-dashboard {
+  background: #eceef1;
+}
+
+.page-dashboard .chartjs-node {
+  /* Styles here */
+}
+
+.page-dashboard-default .card {
+  /* Styles here */
+}
+
+.page-dashboard-mytasks .card {
+  /* Styles here */
+}
+
+.page-dashboard-actions {
+  /* Styles here */
+}
+
+.page-dashboard-actions-tasks {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Form
+========================================================================== */
+.page-form {
+  /* Styles here */
+}
+
+.page-form-default {
+  /* Styles here */
+}
+
+.page-form-imagemap {
+  /* Styles here */
+}
+
+.page-form-tabs {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Master Detail
+========================================================================== */
+.page-masterdetail {
+  /* Styles here */
+}
+
+.page-masterdetail-basic {
+  /* Styles here */
+}
+
+.page-masterdetail-big {
+  /* Styles here */
+}
+
+.page-masterdetail-imagemap {
+  /* Styles here */
+}
+
+.page-masterdetail-multilevel {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Tabs
+========================================================================== */
+.page-tabs {
+  /* Styles here */
+}
+
+.page-tabs .section.pageheader {
+  border: 0;
+  padding-bottom: 20px;
+}
+
+.page-tabs .tabsfullwidth {
+  /* Styles here */
+}
+
+.page-tabs-default {
+  /* Styles here */
+}
+
+.page-tabs-fullwidth {
+  /* Styles here */
+}
+
+.page-tabs-fullwidth .pageheader.pageheader-fullwidth {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Website
+========================================================================== */
+.page-website {
+  /* Styles here */
+}
+
+.page-website-actions {
+  /* Styles here */
+}
+
+.page-website-items {
+  /* Styles here */
+}
+
+.page-website-items-detail {
+  /* Styles here */
+}
+
+.page-website-presentation {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Wizard
+========================================================================== */
+.page-wizard {
+  /* Styles here */
+}
+
+.page-wizard-default {
+  /* Styles here */
+}
+
+.page-wizard-titlecentered {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Phone
+========================================================================== */
+.phone-page-dashboard {
+  /* Styles here */
+}
+
+.phone-page-dashboard-default {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Phone Form
+========================================================================== */
+.phone-page-form {
+  /* Styles here */
+}
+
+.phone-page-form-default {
+  /* Styles here */
+}
+
+.phone-page-form-edit {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Phone Listview
+========================================================================== */
+.phone-page-listview {
+  /* Styles here */
+}
+
+.phone-page-listview-default {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Phone Wizard
+========================================================================== */
+.phone-page-wizard {
+  /* Styles here */
+}
+
+.phone-page-wizard-default {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Tablet Dashboard
+========================================================================== */
+.tablet-page-dashboard {
+  /* Styles here */
+}
+
+.tablet-page-dashboard-default {
+  /* Styles here */
+}
+
+.tablet-page-dashboard-big {
+  /* Styles here */
+}
+
+.tablet-page-dashboard-mytasks {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Tablet Form
+========================================================================== */
+.tablet-page-form {
+  /* Styles here */
+}
+
+.tablet-page-form-default {
+  /* Styles here */
+}
+
+.tablet-page-form-edit {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Tablet Master Detail
+========================================================================== */
+.tablet-page-masterdetail {
+  /* Styles here */
+}
+
+.tablet-page-masterdetail-default {
+  /* Styles here */
+}
+
+.tablet-page-masterdetail-leftright {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Special styles for presenting Page Template Tablet Wizard
+========================================================================== */
+.tablet-page-wizard {
+  /* Styles here */
+}
+
+.tablet-page-wizard-default {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Card
+========================================================================== */
+.card {
+  padding: 16px !important;
+  border-style: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.card-header-action {
+  /* Title + button + border below title and button */
+}
+
+.card-header-action .card-title {
+  /* Styles here */
+}
+
+.card-header-action .btn {
+  /* Styles here */
+}
+
+.card-details {
+  /* Styles here */
+}
+
+.card-title {
+  /* Styles here */
+}
+
+.card-subtitle {
+  /* Styles here */
+}
+
+.card-annotation {
+  /* Styles here */
+}
+
+.card-icon {
+  /* Styles here */
+}
+
+.card-icon .glyphicon {
+  /* Styles here */
+}
+
+.card-image {
+  /* Styles here */
+}
+
+.card-link {
+  /* Styles here */
+}
+
+.card-bg-mix1 {
+  background-color: #526575;
+}
+
+.card-bg-mix2 {
+  background-color: #ffd1b0;
+}
+
+.card-bg-mix3 {
+  background-color: #7ba8e5;
+}
+
+.card-bg-mix4 {
+  background-color: #b5dfb7;
+}
+
+.card-bg-mix5 {
+  background-color: #f4cecd;
+}
+
+/* ==========================================================================
+   Dashboard Card
+========================================================================== */
+.dashboardcard {
+  border-style: none;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.26);
+  border-radius: 0;
+}
+
+.dashboardcard-title {
+  /* Styles here */
+}
+
+.dashboardcard-subtitle {
+  /* Styles here */
+}
+
+.dashboardcard-link {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Dashboard Stats
+
+   Used in dashboard
+========================================================================== */
+.dashboardstat {
+  /* Styles here */
+}
+
+.dashboardstat .dashboardstat-left,
+.dashboardstat .dashboardstat-right {
+  /* Styles here */
+}
+
+.dashboardstat-icon {
+  /* Styles here */
+}
+
+.dashboardstat-title {
+  /* Styles here */
+}
+
+.dashboardstat-number {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Form
+
+   To extend the default form
+========================================================================== */
+.form {
+  /* Styles here */
+}
+
+.control-label {
+  /* Styles here */
+}
+
+.form-footer {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Form Block
+
+   Used in default forms
+========================================================================== */
+.formblock {
+  margin-top: 0px;
+}
+
+.formblock-header {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Master Detail Listview
+========================================================================== */
+/* ==========================================================================
+   Page Header
+========================================================================== */
+.pageheader {
+  /* Styles here */
+}
+
+.pageheader.section {
+  /* Styles here */
+}
+
+.pageheader-title {
+  /* Styles here */
+}
+
+.pageheader-subtitle {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Section Header
+========================================================================== */
+/* ==========================================================================
+   Profile Card
+========================================================================== */
+.profilecard {
+  /* Styles here */
+}
+
+.profilecard .profilecard-contentwrapper {
+  /* Styles here */
+}
+
+.profilecard .profilecard-imgwrapper {
+  /* Styles here */
+}
+
+.profilecard .profilecard-actionwrapper {
+  /* Styles here */
+}
+
+.profilecard .profilecard-contentwrapper,
+.profilecard .profilecard-imgwrapper,
+.profilecard .profilecard-actionwrapper {
+  /* Styles here */
+}
+
+.profilecard-btn {
+  /* Styles here */
+}
+
+.profilecard-img {
+  /* Styles here */
+}
+
+.profilecard-title {
+  /* Styles here */
+}
+
+.profilecard-subtitle {
+  /* Styles here */
+}
+
+.pageheader .profilecard {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Profile Header
+========================================================================== */
+.profileheader {
+  /* Styles here */
+}
+
+.profileheader .profileheader-content {
+  /* Styles here */
+}
+
+.profileheader .profileheader-image {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Products
+
+   Used in Website page templates
+========================================================================== */
+.product-header {
+  /* Styles here */
+}
+
+.product-content {
+  /* Styles here */
+}
+
+.product-title {
+  /* Styles here */
+}
+
+.product-subtitle {
+  /* Styles here */
+}
+
+.product-btn {
+  /* Styles here */
+}
+
+.section {
+  /* Styles here */
+}
+
+.profile-phone .section {
+  /* Styles here */
+}
+
+.profile-tablet .section {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Sidebar Header
+========================================================================== */
+/* ==========================================================================
+   Tabs full width
+========================================================================== */
+.tabsfullwidth {
+  /* Styles here */
+}
+
+.tabsfullwidth > .mx-tabcontainer-tabs {
+  /* Styles here */
+}
+
+.tabsfullwidth > .mx-tabcontainer-content {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Wizard
+
+   Styling for Wizard (Steps/Numbers)
+========================================================================== */
+.wizard {
+  /* Wizard line between steps */
+}
+
+.wizard:before {
+  /* Styles here */
+}
+
+.wizard-step {
+  /* Styles here */
+}
+
+.wizard-step-number {
+  /* Styles here */
+}
+
+.wizard-step-number-active {
+  /* Styles here */
+}
+
+.wizard-step-number-visited {
+  /* Styles here */
+}
+
+.wizard-step-title {
+  /* Styles here */
+}
+
+/* Phone Specific Styling */
+.profile-phone .wizard:before {
+  /* Styles here */
+}
+
+.profile-phone .wizard .wizard-step-number {
+  /* Styles here */
+}
+
+/* ==========================================================================
+   Templategrid Profile Card
+
+   Profile card styled for templategrid
+========================================================================== */
+.templategrid-profilecard {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-contentwrapper {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-imgwrapper {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-contentwrapper,
+.templategrid-profilecard .templategrid-profilecard-imgwrapper {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-btn {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-img {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-title {
+  /* Styles here */
+}
+
+.templategrid-profilecard .templategrid-profilecard-subtitle {
+  /* Styles here */
+}
