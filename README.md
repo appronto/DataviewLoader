@@ -13,6 +13,7 @@ You have data that is hard in showing on the page because of integration, hard c
 This widget executes the microflow containing the integration and is showing a loader image until the microflow is done. Than the content of the part is shown. 
 - Let the user show content directly but load content that are slow in retrieving.
 - Showing a loader image until the data is done.
+- The loader is based on CSS3 animation. The color or appereance can be changed with CSS.
 
 ## Installation
 
