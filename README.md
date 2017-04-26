@@ -1,8 +1,10 @@
 # Dataview Loader widget
 
-When a large data is retrieved, especially with integrations, it takes a while the pages is loaded and the users don't see can do anything. Mendix is showing a loader until all data is retrieved and then showing the complete page.
-Wouldn't be better if can show the user parts of the pages and the other parts will be show when the integration is done? 
-This widget allows you to directly show the user the page with parts containing a loader until the data is retrieved and the part of the page is shown.   
+When you retrieve large amounts of data, especially with integrations, it takes a while for the pages to load, and the Users can't see or do anything. Mendix shows a loader until ALL data is retrieved, and only then it shows the complete page.
+
+Wouldn't it be better if we could show the User part of the page as it loads, and then the rest once the retrieve over integration is complete?
+
+This widget allows you to show the User parts of the page directly data is retrieved, with individual elements showing a loader. 
 
 ## Typical usage scenario
 
