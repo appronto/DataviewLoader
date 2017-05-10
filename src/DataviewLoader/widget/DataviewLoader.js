@@ -114,27 +114,6 @@ define([
 
     },
 
-    _execMf: function(mf, guid) {
-      logger.debug(this.id + "._execMf");
-      if (mf && guid) {
-        mx.ui.action(mf, {
-          async: true,
-          params: {
-            applyto: "selection",
-            guids: [guid]
-          },
-          callback: dojoLang.hitch(this, function(obj) {
-            logger.debug(this.id + "._execMf start showing content.");
-            this._setPage(obj, this.divContent);
-            logger.debug(this.id + "._execMf end showing content.");
-          }),
-          error: function(error) {
-            logger.debug(error.description);
-          }
-        }, this);
-      }
-    },
-
     // Rerender the interface.
     _updateRendering: function(callback) {
       logger.debug(this.id + "._updateRendering");
@@ -157,13 +136,19 @@ define([
 
       this._contentShown = true;
       if (this._contextObj && this.loadingMF) {
-        this._execMf(this.loadingMF, this._contextObj.getGuid());
+        this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback);
       } else if (this._contextObj) {
         this._setPage(this._contextObj, this.divContent);
       }
     },
 
-    _setPage: function(pageObj, htmlnode) {
+    _processMicroflowCallback: function(objs) {
+      logger.debug(this.id + '._processMicroflowCallback');
+
+      this._setPage(objs[0]);
+    },
+
+    _setPage: function(pageObj) {
       logger.debug(this.id + '._setPage');
 
       if (pageObj) {
@@ -172,7 +157,7 @@ define([
         mx.ui.openForm(this.pageContent, {
           context: pageContext,
           location: "content",
-          domNode: htmlnode,
+          domNode: this.divContent,
           callback: dojoLang.hitch(this, this._showPage),
           error: function(error) {
             console.log(error.description);
@@ -181,7 +166,7 @@ define([
       } else {
         mx.ui.openForm(this.pageContent, {
           location: "content",
-          domNode: htmlnode,
+          domNode: this.divContent,
           callback: dojoLang.hitch(this, this._showPage),
           error: function(error) {
             console.log(error.description);
@@ -201,6 +186,22 @@ define([
       logger.debug(this.id + "._resetSubscriptions");
       // Release handles on previous object, if any.
       this.unsubscribeAll();
+    },
+
+    _execMf: function(mf, guid, cb) {
+        logger.debug(this.id + "._execMf" + (mf ? ": " + mf : ""));
+        if (mf && guid) {
+            mx.ui.action(mf, {
+                params: {
+                    applyto: "selection",
+                    guids: [guid]
+                },
+                callback: (cb && typeof cb === "function" ? dojoLang.hitch(this, cb) : null),
+                error: function(error) {
+                    console.debug(error.description);
+                }
+            }, this);
+        }
     },
 
     _executeCallback: function(cb, from) {
