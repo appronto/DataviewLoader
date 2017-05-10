@@ -8,15 +8,19 @@
     <properties>
         <property key="pageContent" type="form" required="true">
             <caption>Result page</caption>
-            <category>Appearance</category>
-            <description>The page that will be shown with the output of the microflow as input..</description>
+            <category>Settings</category>
+            <description>The page to load and display.</description>
         </property>
-        <property key="loadingMF" type="microflow" required="true">
+        <property key="loadingMF" type="microflow" required="false">
             <caption>Microflow</caption>
-            <category>Behavior</category>
-            <description>The microflow that will execute the hard work.</description>
-            <returnType type="Void" />
+            <category>Settings</category>
+            <description>The microflow that will execute the hard work. (optional)</description>
+            <returnType type="Object" entityProperty="returnEntity" />
+        </property>
+        <property key="returnEntity" type="entity" allowNonPersistableEntities="true" required="false">
+            <caption>Return entity</caption>
+            <category>Settings</category>
+            <description>The entity to return via the Microflow. (optional; required when defining a Microflow)</description>
         </property>
     </properties>
 </widget>
-
