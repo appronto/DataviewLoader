@@ -8,18 +8,18 @@
     <properties>
         <property key="pageContent" type="form" required="true">
             <caption>Result page</caption>
-            <category>Settings</category>
+            <category>Behavior</category>
             <description>The page to load and display.</description>
         </property>
         <property key="loadingMF" type="microflow" required="false">
             <caption>Microflow</caption>
-            <category>Settings</category>
+            <category>Datasource</category>
             <description>Optional microflow to execute the hard work. If the microflow isn't configured, the dataview object will be passed to the Result page.</description>
             <returnType type="Object" entityProperty="returnEntity" />
         </property>
         <property key="returnEntity" type="entity" allowNonPersistableEntities="true" required="false">
             <caption>Return entity</caption>
-            <category>Settings</category>
+            <category>Datasource</category>
             <description>The entity to return via the Microflow. (optional; required when defining a Microflow)</description>
         </property>
     </properties>
