@@ -4,7 +4,7 @@
     ========================
 
     @file      : DataviewLoader.js
-    @version   : 1.0.0
+    @version   : 1.1.0
     @author    : JvdGraaf
     @date      : Mon, 24 Apr 2017 15:02:42 GMT
     @copyright : Appronto
@@ -48,7 +48,7 @@ define([
     // Internal variables. Non-primitives created in the prototype are shared between all widget instances.
     _handles: null,
     _contextObj: null,
-    _contentShown: null,
+    _loadingStarted: null,
 
     // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
     constructor: function() {
@@ -68,7 +68,7 @@ define([
     update: function(obj, callback) {
       logger.debug(this.id + ".update");
 
-      this._contentShown = false;
+      this._loadingStarted = false;
 
       this._contextObj = obj;
       this._resetSubscriptions();
@@ -134,7 +134,7 @@ define([
     _loadAndShowcontent: function() {
       logger.debug(this.id + "._loadAndShowcontent");
 
-      this._contentShown = true;
+      this._loadingStarted = true;
       if (this._contextObj && this.loadingMF) {
         this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback);
       } else if (this._contextObj) {
