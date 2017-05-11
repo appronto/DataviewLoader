@@ -9,3 +9,4 @@ test/.project
 .idea/
 *DS_Store*
 *.svn-base
+node_modules/
