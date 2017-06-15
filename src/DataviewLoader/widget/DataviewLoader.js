@@ -38,18 +38,14 @@ define([
 
         // DOM elements
         divContent: null,
-        divLoader: null,
-
-        // Parameters configured in the Modeler.
-        pageContent: "",
-        loadingMF: "",
-        returnEntity: "",
-        active: true,
+        divLoader: null,        
 
         // Internal variables. Non-primitives created in the prototype are shared between all widget instances.
         _handles: null,
         _contextObj: null,
-        _loadingStarted: null,
+        _loadingStarted: false,
+        _pageInitiated: false,
+        active: true,
 
         // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
         constructor: function () {
@@ -90,7 +86,7 @@ define([
         resize: function (box) {
             logger.debug(this.id + ".resize");
 
-            if (this._contentShown === false && this.domNode.offsetParent !== null) {
+            if (this.domNode.offsetParent !== null) {
                 this._loadAndShowcontent();
             }
         },
@@ -113,7 +109,6 @@ define([
         // Attach events to HTML dom elements
         _setupEvents: function () {
             logger.debug(this.id + "._setupEvents");
-
         },
 
         // Rerender the interface.
@@ -135,19 +130,23 @@ define([
 
         _loadAndShowcontent: function () {
             logger.debug(this.id + "._loadAndShowcontent");
-
-            this._loadingStarted = true;
-            if (this._contextObj && this.loadingMF) {
-                this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback);
-            } else if (this._contextObj) {
-                this._setPage(this._contextObj, this.divContent);
+            if(this._loadingStarted == false){
+                this._loadingStarted = true;
+                if (this._contextObj && this.loadingMF) {
+                    this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback);
+                } else if (this._contextObj) {
+                    this._setPage(this._contextObj, this.divContent);
+                }
             }
         },
 
         _processMicroflowCallback: function (objs) {
             logger.debug(this.id + '._processMicroflowCallback');
-            if(this.active){
-                this._setPage(objs[0]);
+            if (this.active) {
+                if(this.asyncCall)
+                    this._setPage(this._contextObj);
+                else
+                    this._setPage(objs[0]);
             } else {
                  console.info(this.id + "._processMicroflowCallback Skip loading because widget is destroyed.");
             }
@@ -155,7 +154,8 @@ define([
 
         _setPage: function (pageObj) {
             logger.debug(this.id + '._setPage');
-
+            this.divContent.innerHTML= "";
+            
             if (pageObj) {
                 var pageContext = new mendix.lib.MxContext();
                 pageContext.setTrackObject(pageObj);
@@ -184,19 +184,34 @@ define([
             logger.debug(this.id + '._showPage on form ' + form.id);
             dojoStyle.set(this.divContent, "display", "block");
             dojoStyle.set(this.divLoader, "display", "none");
+            this._loadingStarted = false;
         },
-
+        
         // Reset subscriptions.
         _resetSubscriptions: function () {
             logger.debug(this.id + "._resetSubscriptions");
             // Release handles on previous object, if any.
             this.unsubscribeAll();
+
+            // When a mendix object exists create subscribtions.
+            if (this._contextObj && this.refreshAction) {
+                logger.debug(this.id + "._resetSubscriptions setup refresh handler");
+                this.subscribe({
+                    guid: this._contextObj.getGuid(),
+                    callback: dojoLang.hitch(this, function (guid) {
+                        if(!this._loadingStarted){
+                            this._updateRendering();
+                        }
+                    })
+                });
+            }
         },
 
         _execMf: function (mf, guid, cb) {
             logger.debug(this.id + "._execMf" + (mf ? ": " + mf : ""));
             if (mf && guid) {
                 mx.ui.action(mf, {
+                    async : this.asyncCall,
                     params: {
                         applyto: "selection",
                         guids: [guid]

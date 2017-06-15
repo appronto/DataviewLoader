@@ -11,16 +11,26 @@
             <category>Behavior</category>
             <description>The page to load and display.</description>
         </property>
+        <property key="refreshAction" type="boolean" defaultValue="false">
+            <caption>Reload on refresh</caption>
+            <category>Behavior</category>
+            <description>When the dataview object is refreshed, the Microflow will be triggered again.</description>
+        </property>
         <property key="loadingMF" type="microflow" required="false">
             <caption>Microflow</caption>
             <category>Datasource</category>
             <description>Optional microflow to execute the hard work. If the microflow isn't configured, the dataview object will be passed to the Result page.</description>
             <returnType type="Object" entityProperty="returnEntity" />
         </property>
+        <property key="asyncCall" type="boolean" defaultValue="false">
+            <caption>Asynchronous call</caption>
+            <category>Datasource</category>
+            <description>Must the microflow be executed asynchronous? If yes, only the dataview object can be used for the Result page, because the Return entity is passed to the widget by Mendix.</description>
+        </property>
         <property key="returnEntity" type="entity" allowNonPersistableEntities="true" required="false">
             <caption>Return entity</caption>
             <category>Datasource</category>
-            <description>The entity to return via the Microflow. (optional; required when defining a Microflow)</description>
+            <description>The entity to return via the Microflow when the Asynchronous call is false. (optional; required when defining a Microflow)</description>
         </property>
     </properties>
 </widget>
