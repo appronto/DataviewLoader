@@ -16,6 +16,11 @@
             <category>Behavior</category>
             <description>When the dataview object is refreshed, the Microflow will be triggered again.</description>
         </property>
+        <property key="fadeContent" type="boolean" defaultValue="false">
+            <caption>Fade in content</caption>
+            <category>Behavior</category>
+            <description>When the content has been loaded, must there be a fade in executed?</description>
+        </property>
         <property key="loadingMF" type="microflow" required="false">
             <caption>Microflow</caption>
             <category>Datasource</category>

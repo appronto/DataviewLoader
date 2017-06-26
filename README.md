@@ -8,7 +8,11 @@ This widget allows you to show the User parts of the page directly data is retri
 
 ## Typical usage scenario
 
-You have data that is hard in showing on the page because of integration, hard calculations or it's just a lot of data and you want you users to show page directly but give feedback that the data will come later.
+You have data that is hard in showing on the page because of 
+- Integrations from external systems, 
+- Hard data calculations 
+- Custom search functionality
+Or it's just a lot of data and you want your users to show the page directly but give feedback that the data will come later.
 
 ## Features and limitations
 
@@ -16,6 +20,7 @@ This widget executes the microflow containing the integration and fetches the re
 - Let the user show content directly but load content that are slow in retrieving.
 - Showing a loader image until the data is done.
 - The loader is based on CSS3 animation. The color or appereance can be changed with CSS.
+- Fade in the content after loading
 
 ## Installation
 

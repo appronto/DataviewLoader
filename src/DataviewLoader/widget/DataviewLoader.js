@@ -4,7 +4,7 @@
     ========================
 
     @file      : DataviewLoader.js
-    @version   : 1.1.0
+    @version   : 1.3.0
     @author    : JvdGraaf
     @date      : Mon, 24 Apr 2017 15:02:42 GMT
     @copyright : Appronto
@@ -24,11 +24,12 @@ define([
   "mxui/dom",
   "dojo/dom",
   "dojo/dom-style",
+  "dojo/dom-class",
   "dojo/_base/lang",
   "dojo/_base/event",
 
   "dojo/text!DataviewLoader/widget/template/DataviewLoader.html"
-], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoStyle, dojoLang, dojoEvent, widgetTemplate) {
+], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoStyle, dojoClass, dojoLang, dojoEvent, widgetTemplate) {
     "use strict";
 
     // Declare widget's prototype.
@@ -56,7 +57,7 @@ define([
         // dijit._WidgetBase.postCreate is called after constructing the widget. Implement to do extra setup work.
         postCreate: function () {
             logger.debug(this.id + ".postCreate");
-
+            
             this._updateRendering();
             this._setupEvents();
         },
@@ -118,6 +119,10 @@ define([
             if (this._contextObj) {
                 dojoStyle.set(this.divContent, "display", "none");
                 dojoStyle.set(this.divLoader, "display", "block");
+                
+                if(this.fadeContent){
+                    dojoClass.add(this.divContent, "loaderfade");
+                }
             }
 
             // The callback, coming from update, needs to be executed, to let the page know it finished rendering
@@ -182,8 +187,10 @@ define([
 
         _showPage: function (form) {
             logger.debug(this.id + '._showPage on form ' + form.id);
+            
             dojoStyle.set(this.divContent, "display", "block");
             dojoStyle.set(this.divLoader, "display", "none");
+            
             this._loadingStarted = false;
         },
         
