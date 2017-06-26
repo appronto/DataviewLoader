@@ -12,6 +12,7 @@ You have data that is hard in showing on the page because of
 - Integrations from external systems, 
 - Hard data calculations 
 - Custom search functionality
+
 Or it's just a lot of data and you want your users to show the page directly but give feedback that the data will come later.
 
 ## Features and limitations
