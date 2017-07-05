@@ -65,12 +65,17 @@ define([
         // mxui.widget._WidgetBase.update is called when context is changed or initialized. Implement to re-render and / or fetch data.
         update: function (obj, callback) {
             logger.debug(this.id + ".update");
+            
+            if(this._contextObj !== obj){
+                this._loadingStarted = false;
 
-            this._loadingStarted = false;
-
-            this._contextObj = obj;
-            this._resetSubscriptions();
-            this._updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
+                this._contextObj = obj;
+                this._resetSubscriptions();
+                this._updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
+            } else {
+                // The callback, coming from update, needs to be executed, to let the page know it finished rendering
+                this._executeCallback(callback, "update");
+            }
         },
 
         // mxui.widget._WidgetBase.enable is called when the widget should enable editing. Implement to enable editing if widget is input widget.
