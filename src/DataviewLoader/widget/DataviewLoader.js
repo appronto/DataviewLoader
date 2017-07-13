@@ -4,7 +4,7 @@
     ========================
 
     @file      : DataviewLoader.js
-    @version   : 1.3.0
+    @version   : 1.3.1
     @author    : JvdGraaf
     @date      : Mon, 24 Apr 2017 15:02:42 GMT
     @copyright : Appronto
@@ -64,9 +64,8 @@ define([
 
         // mxui.widget._WidgetBase.update is called when context is changed or initialized. Implement to re-render and / or fetch data.
         update: function (obj, callback) {
-            logger.debug(this.id + ".update");
-            
             if(this._contextObj !== obj){
+                console.log(this.id + ".update on new object");
                 this._loadingStarted = false;
 
                 this._contextObj = obj;
@@ -91,15 +90,15 @@ define([
         // mxui.widget._WidgetBase.resize is called when the page's layout is recalculated. Implement to do sizing calculations. Prefer using CSS instead.
         resize: function (box) {
             logger.debug(this.id + ".resize");
-
-            if (this.domNode.offsetParent !== null) {
-                this._loadAndShowcontent();
-            }
+            // TODO: How to handle tabs and conditional visibility
+//            if (this.domNode.offsetParent !== null) {
+//                this._loadAndShowcontent();
+//            }
         },
 
         // mxui.widget._WidgetBase.uninitialize is called when the widget is destroyed. Implement to do special tear-down work.
         uninitialize: function () {
-            console.info(this.id + ".uninitialize");
+            logger.debug(this.id + ".uninitialize");
             // Clean up listeners, helper objects, etc. There is no need to remove listeners added with this.connect / this.subscribe / this.own.
             this.active = false;
         },
@@ -145,7 +144,7 @@ define([
                 if (this._contextObj && this.loadingMF) {
                     this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback);
                 } else if (this._contextObj) {
-                    this._setPage(this._contextObj, this.divContent);
+                    this._setPage(this._contextObj);
                 }
             }
         },
@@ -164,34 +163,44 @@ define([
 
         _setPage: function (pageObj) {
             logger.debug(this.id + '._setPage');
-            this.divContent.innerHTML= "";
-            
-            if (pageObj) {
-                var pageContext = new mendix.lib.MxContext();
-                pageContext.setTrackObject(pageObj);
-                mx.ui.openForm(this.pageContent, {
-                    context: pageContext,
-                    location: "content",
-                    domNode: this.divContent,
-                    callback: dojoLang.hitch(this, this._showPage),
-                    error: function (error) {
-                        console.log(error.description);
-                    }
-                });
+
+            if(this._pageInitiated) {
+                if (this._loadingStarted) {
+                    this._showPage();
+                } else {
+                    console.log(this.id + "_setPage skip because already set.");
+                }
             } else {
-                mx.ui.openForm(this.pageContent, {
-                    location: "content",
-                    domNode: this.divContent,
-                    callback: dojoLang.hitch(this, this._showPage),
-                    error: function (error) {
-                        console.log(error.description);
-                    }
-                });
+                this._pageInitiated = true;
+                this.divContent.innerHTML= "";
+                console.log(this.id + "_setPage");
+                if (pageObj) {
+                    var pageContext = new mendix.lib.MxContext();
+                    pageContext.setTrackObject(pageObj);
+                    mx.ui.openForm(this.pageContent, {
+                        context: pageContext,
+                        location: "content",
+                        domNode: this.divContent,
+                        callback: dojoLang.hitch(this, this._showPage),
+                        error: function (error) {
+                            console.log(error.description);
+                        }
+                    });
+                } else {
+                    mx.ui.openForm(this.pageContent, {
+                        location: "content",
+                        domNode: this.divContent,
+                        callback: dojoLang.hitch(this, this._showPage),
+                        error: function (error) {
+                            console.log(error.description);
+                        }
+                    });
+                }
             }
         },
 
-        _showPage: function (form) {
-            logger.debug(this.id + '._showPage on form ' + form.id);
+        _showPage: function () {
+            console.log(this.id + "._showPage on form");
             
             dojoStyle.set(this.divContent, "display", "block");
             dojoStyle.set(this.divLoader, "display", "none");
@@ -211,8 +220,11 @@ define([
                 this.subscribe({
                     guid: this._contextObj.getGuid(),
                     callback: dojoLang.hitch(this, function (guid) {
-                        if(!this._loadingStarted){
+                        if(this._loadingStarted == false){
+                            console.log(this.id + ".Refresh triggered.");
                             this._updateRendering();
+                        } else {
+                            console.log(this.id + ".Refresh skip because of loading started.");
                         }
                     })
                 });
