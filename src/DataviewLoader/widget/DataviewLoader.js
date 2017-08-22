@@ -46,6 +46,7 @@ define([
         _contextObj: null,
         _loadingStarted: false,
         _pageInitiated: false,
+        _form: null,
         active: true,
 
         // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
@@ -142,7 +143,7 @@ define([
             if(this._loadingStarted == false){
                 this._loadingStarted = true;
                 if (this._contextObj && this.loadingMF) {
-                    this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback);
+                    this._execMf(this.loadingMF, this._contextObj.getGuid(), this._processMicroflowCallback, this._processMicroflowFailure);
                 } else if (this._contextObj) {
                     this._setPage(this._contextObj);
                 }
@@ -158,6 +159,16 @@ define([
                     this._setPage(objs[0]);
             } else {
                  console.info(this.id + "._processMicroflowCallback Skip loading because widget is destroyed.");
+            }
+        },
+        _processMicroflowFailure: function (){
+            if(this.errorHandling){
+                if(this._pageInitiated)
+                    this._form.close();
+                this._pageInitiated = false;
+                this.divContent.innerHTML= "<div class=\"text-center\"><h3 class=\"loaderheader\">"+this.errorText+"</h3></div>";
+
+                this._showPage();
             }
         },
 
@@ -177,24 +188,24 @@ define([
                 if (pageObj) {
                     var pageContext = new mendix.lib.MxContext();
                     pageContext.setTrackObject(pageObj);
-                    mx.ui.openForm(this.pageContent, {
-                        context: pageContext,
-                        location: "content",
-                        domNode: this.divContent,
-                        callback: dojoLang.hitch(this, this._showPage),
-                        error: function (error) {
-                            console.log(error.description);
-                        }
-                    });
+                    this._form = mx.ui.openForm(this.pageContent, {
+                                    context: pageContext,
+                                    location: "content",
+                                    domNode: this.divContent,
+                                    callback: dojoLang.hitch(this, this._showPage),
+                                    error: function (error) {
+                                        console.log(error.description);
+                                    }
+                                });
                 } else {
-                    mx.ui.openForm(this.pageContent, {
-                        location: "content",
-                        domNode: this.divContent,
-                        callback: dojoLang.hitch(this, this._showPage),
-                        error: function (error) {
-                            console.log(error.description);
-                        }
-                    });
+                    this._form = mx.ui.openForm(this.pageContent, {
+                                    location: "content",
+                                    domNode: this.divContent,
+                                    callback: dojoLang.hitch(this, this._showPage),
+                                    error: function (error) {
+                                        console.log(error.description);
+                                    }
+                                });
                 }
             }
         },
@@ -231,7 +242,7 @@ define([
             }
         },
 
-        _execMf: function (mf, guid, cb) {
+        _execMf: function (mf, guid, cb, cbfailure) {
             logger.debug(this.id + "._execMf" + (mf ? ": " + mf : ""));
             if (mf && guid) {
                 mx.ui.action(mf, {
@@ -241,9 +252,7 @@ define([
                         guids: [guid]
                     },
                     callback: (cb && typeof cb === "function" ? dojoLang.hitch(this, cb) : null),
-                    error: function (error) {
-                        console.debug(error.description);
-                    }
+                    error: (cbfailure && typeof cbfailure === "function" ? dojoLang.hitch(this, cbfailure) : null)
                 }, this);
             }
         },

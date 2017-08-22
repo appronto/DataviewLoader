@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <widget id="DataviewLoader.widget.DataviewLoader" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
     <name>DataviewLoader</name>
-    <description>Change the loading experience to the user to just load parts of the page witt the usage of this widget.</description>
-
+    <description>Change the loading experience to the user to just load parts of the page with the usage of this widget.</description>
     <icon>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACN0lEQVRYR+3Xy6tOURjH8c9hQDF0nchESAxcBpS/wTXXMnGdG2As/gS5DJQTRXKNv0BJSCFkIjOOCckI0aN3a7Vae7/r7DdlcNZ0PZfvftZaz+/ZY/qvLTiLMRzE7T6hwrnv+oh5A+cJzO8TaBSAX1nCXrF6OQ0S/zOA1TiPWTiBWy2lrQXYiZP4gv14nsYrVeAJ1gyMfmIvrhYgagD24SKmDfwfYsMwgNdYlhi1QXxILl5cyAUZZJ48tl9g1TCAzbiO6RnE9uw4NmXP8G5ivwuXky+Pre+I2PeHAcT+boxnEG+wvPKpvceixPYHduBm7t/1CvbgUgIRd2NdJcCrBDaSx0W8UfId9gy34RS+4gieVgKsxxnMxDHcafMbBlCZr7/ZFEBUoFG1RliaesbbPtxX5ZJD2YpzmJMd1KdQ0QBIVS0/zGg2C/uf8B/PSJQnb0JOBEBI6dyWJKUON1mezvgBEB0txKd0BDFopB1ussnDvjP+1Cv47ysQqnYa33AAjyovwUZcwAwcbdOBiNVVgVzPnyGmpZoVyrl0YNg11LQClIaJULgVNdnxDosT21aIUgVCOq8UhonomPcKHS5Gs/y/ILrftYqhpliBt1iSJIpJJqDyYSLtcKX/gvCJqSidrF5iZVrFUgUeY+3AqC15bNcMpTnEA8QF/btKADE0xi/XbBzPZ7jEtwYgzGMOjLH8Mw4hht5OgMp7VlWBobFGaUS1FeiEGAUgVbneqjkKQKNyzTPspZq/AZS8dI6xqepWAAAAAElFTkSuQmCC</icon>
 
     <properties>
@@ -36,6 +35,17 @@
             <caption>Return entity</caption>
             <category>Datasource</category>
             <description>The entity to return via the Microflow when the Asynchronous call is false. (optional; required when defining a Microflow)</description>
+        </property>
+        
+        <property key="errorHandling" type="boolean" defaultValue="false">
+            <caption>Show error text</caption>
+            <category>Behavior</category>
+            <description>When the microflow fails, must there be a custom text visible for the user? Otherwise the loader will be visible.</description>
+        </property>
+        <property key="errorText" type="translatableString" required="false">
+            <caption>Error text</caption>
+            <category>Behavior</category>
+            <description>Text that is visible when the microflow fails in execution.</description>
         </property>
     </properties>
 </widget>
