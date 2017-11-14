@@ -68,7 +68,8 @@ define([
             if(this._contextObj !== obj){
                 console.log(this.id + ".update on new object");
                 this._loadingStarted = false;
-
+                this._pageInitiated = false;
+                
                 this._contextObj = obj;
                 this._resetSubscriptions();
                 this._updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
@@ -90,11 +91,11 @@ define([
 
         // mxui.widget._WidgetBase.resize is called when the page's layout is recalculated. Implement to do sizing calculations. Prefer using CSS instead.
         resize: function (box) {
-            logger.debug(this.id + ".resize");
+            console.log(this.id + ".resize");
             // TODO: How to handle tabs and conditional visibility
-//            if (this.domNode.offsetParent !== null) {
-//                this._loadAndShowcontent();
-//            }
+            if (this.domNode.offsetParent !== null) {
+                this._loadAndShowcontent();
+            }
         },
 
         // mxui.widget._WidgetBase.uninitialize is called when the widget is destroyed. Implement to do special tear-down work.
