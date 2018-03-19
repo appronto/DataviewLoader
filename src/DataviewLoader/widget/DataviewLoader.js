@@ -76,7 +76,7 @@ define([
             } else {
                 // The callback, coming from update, needs to be executed, to let the page know it finished rendering
                 this._executeCallback(callback, "update");
-            }
+            } 
         },
 
         // mxui.widget._WidgetBase.enable is called when the widget should enable editing. Implement to enable editing if widget is input widget.
@@ -212,7 +212,7 @@ define([
         },
 
         _showPage: function () {
-            console.log(this.id + "._showPage on form");
+            logger.debug(this.id + "._showPage on form");
             
             dojoStyle.set(this.divContent, "display", "block");
             dojoStyle.set(this.divLoader, "display", "none");
@@ -227,14 +227,19 @@ define([
             this.unsubscribeAll();
 
             // When a mendix object exists create subscribtions.
-            if (this._contextObj && this.refreshAction) {
-                logger.debug(this.id + "._resetSubscriptions setup refresh handler");
+            if (this._contextObj && this.refreshAction == "Object" || this.refreshAction == "Attribute") {
+                console.log(this.id + "._resetSubscriptions setup refresh handler: " + this.refreshAction);
                 this.subscribe({
                     guid: this._contextObj.getGuid(),
                     callback: dojoLang.hitch(this, function (guid) {
-                        if(this._loadingStarted == false){
-                            console.log(this.id + ".Refresh triggered.");
-                            this._updateRendering();
+                        if(this._loadingStarted == false){                            
+                            if(this.refreshAction == "Attribute" && this.refreshtAttr && this._contextObj.get(this.refreshtAttr)){
+                                console.log(this.id + ".Refresh triggered on attribute change.");
+                                this._updateRendering();
+                            } else if(this.refreshAction == "Object") {
+                                console.log(this.id + ".Refresh triggered on object change.");
+                                this._updateRendering();
+                            }                        
                         } else {
                             console.log(this.id + ".Refresh skip because of loading started.");
                         }

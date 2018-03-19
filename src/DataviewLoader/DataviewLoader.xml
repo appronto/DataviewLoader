@@ -10,10 +10,23 @@
             <category>Behavior</category>
             <description>The page to load and display.</description>
         </property>
-        <property key="refreshAction" type="boolean" defaultValue="false">
+        <property key="refreshAction" type="enumeration" defaultValue="No">
             <caption>Reload on refresh</caption>
-            <category>Behavior</category>
+            <category>Refresh</category>
             <description>When the dataview object is refreshed, the Microflow will be triggered again.</description>
+            <enumerationValues>
+                <enumerationValue key="No">No</enumerationValue>
+                <enumerationValue key="Object">On object</enumerationValue>
+                <enumerationValue key="Attribute">On attribute</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="refreshtAttr" type="attribute" required="false">
+            <caption>Reload on attribute</caption>
+            <category>Refresh</category>
+            <description>On which attribute </description>
+            <attributeTypes>
+                <attributeType name="Boolean" />
+            </attributeTypes>
         </property>
         <property key="fadeContent" type="boolean" defaultValue="false">
             <caption>Fade in content</caption>
