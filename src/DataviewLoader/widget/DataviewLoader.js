@@ -191,7 +191,7 @@ define([
                     pageContext.setTrackObject(pageObj);
                     this._form = mx.ui.openForm(this.pageContent, {
                                     context: pageContext,
-                                    location: "content",
+                                    location: "node",
                                     domNode: this.divContent,
                                     callback: dojoLang.hitch(this, this._showPage),
                                     error: function (error) {
@@ -200,7 +200,7 @@ define([
                                 });
                 } else {
                     this._form = mx.ui.openForm(this.pageContent, {
-                                    location: "content",
+                                    location: "node",
                                     domNode: this.divContent,
                                     callback: dojoLang.hitch(this, this._showPage),
                                     error: function (error) {
