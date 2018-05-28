@@ -93,7 +93,7 @@ define([
         resize: function (box) {
             console.log(this.id + ".resize");
             // TODO: How to handle tabs and conditional visibility
-            if (this.domNode.offsetParent !== null) {
+            if (this.domNode.offsetParent !== null && this.visibilityCheck) {
                 this._loadAndShowcontent();
             }
         },
@@ -134,7 +134,7 @@ define([
             // The callback, coming from update, needs to be executed, to let the page know it finished rendering
             this._executeCallback(callback, "_updateRendering");
 
-            if (this.domNode.offsetParent !== null) {
+            if (this.domNode.offsetParent !== null && this.visibilityCheck) {
                 this._loadAndShowcontent();
             }
         },
@@ -227,7 +227,7 @@ define([
             this.unsubscribeAll();
 
             // When a mendix object exists create subscribtions.
-            if (this._contextObj && this.refreshAction == "Object" || this.refreshAction == "Attribute") {
+            if (this._contextObj && (this.refreshAction === "Object" || this.refreshAction === "Attribute")) {
                 console.log(this.id + "._resetSubscriptions setup refresh handler: " + this.refreshAction);
                 this.subscribe({
                     guid: this._contextObj.getGuid(),

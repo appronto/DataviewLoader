@@ -33,6 +33,11 @@
             <category>Behavior</category>
             <description>When the content has been loaded, must there be a fade in executed?</description>
         </property>
+        <property key="visibilityCheck" type="boolean" defaultValue="false">
+            <caption>Visibility handling</caption>
+            <category>Behavior</category>
+            <description>Is the widget placed in conditional visibility part (example: Tabpage)? This check will prevent for loading the content before the widget is visible.</description>
+        </property>
         <property key="loadingMF" type="microflow" required="false">
             <caption>Microflow</caption>
             <category>Datasource</category>
