@@ -72,7 +72,7 @@ define([
                 
                 this._contextObj = obj;
                 this._resetSubscriptions();
-                this._updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
+                this.   _updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
             } else {
                 // The callback, coming from update, needs to be executed, to let the page know it finished rendering
                 this._executeCallback(callback, "update");
@@ -115,7 +115,7 @@ define([
 
         // Attach events to HTML dom elements
         _setupEvents: function () {
-            logger.debug(this.id + "._setupEvents");
+            //logger.debug(this.id + "._setupEvents");
         },
 
         // Rerender the interface.
@@ -129,14 +129,14 @@ define([
                 if(this.fadeContent){
                     dojoClass.add(this.divContent, "loaderfade");
                 }
+                
+                if (this.domNode.offsetParent !== null || !this.visibilityCheck) {
+                    this._loadAndShowcontent();
+                }
             }
 
             // The callback, coming from update, needs to be executed, to let the page know it finished rendering
             this._executeCallback(callback, "_updateRendering");
-
-            if (this.domNode.offsetParent !== null && this.visibilityCheck) {
-                this._loadAndShowcontent();
-            }
         },
 
         _loadAndShowcontent: function () {
