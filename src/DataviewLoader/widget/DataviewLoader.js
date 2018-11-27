@@ -48,6 +48,7 @@ define([
         _pageInitiated: false,
         _form: null,
         active: true,
+		prevForm : null,
 
         // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
         constructor: function () {
@@ -213,6 +214,11 @@ define([
 
         _showPage: function () {
             logger.debug(this.id + "._showPage on form");
+            
+            if(this.prevForm != null){
+				this.prevForm.destroy();
+			}
+			this.prevForm = mxform;
             
             dojoStyle.set(this.divContent, "display", "block");
             dojoStyle.set(this.divLoader, "display", "none");
