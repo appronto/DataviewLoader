@@ -212,7 +212,7 @@ define([
             }
         },
 
-        _showPage: function () {
+        _showPage: function (mxform) {
             logger.debug(this.id + "._showPage on form");
             
             if(this.prevForm != null){
