@@ -16,6 +16,7 @@
 */
 
 // Required module list. Remove unnecessary modules, you can always get them back from the boilerplate.
+
 define([
   "dojo/_base/declare",
   "mxui/widget/_WidgetBase",
@@ -49,7 +50,6 @@ define([
         _form: null,
         active: true,
         prevForm : null,
-
         // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
         constructor: function () {
             //logger.debug(this.id + ".constructor");
@@ -59,6 +59,7 @@ define([
         // dijit._WidgetBase.postCreate is called after constructing the widget. Implement to do extra setup work.
         postCreate: function () {
             logger.debug(this.id + ".postCreate");
+            
             
             this._updateRendering();
             this._setupEvents();
@@ -173,6 +174,35 @@ define([
                 this._showPage();
             }
         },
+        
+        _openFormByFormProp : function (pageContext){
+            var props = {
+                location: "node",
+                domNode: this.divContent,
+                callback: dojoLang.hitch(this, this._showPage),
+                error: function (error) {
+                    console.log(error.description);
+                }
+            };
+            
+            if(pageContext)
+                props.context = pageContext;
+            this._form = mx.ui.openForm(this.pageContent, props);
+        },
+        
+        _openFormByMF : function(pageObj, pageContext){
+            this._execMf(this.pageMF, pageObj.getGuid(), function(response){
+                this._form = mx.ui.openForm(response, {
+                    context: pageContext,
+                    location: "node",
+                    domNode: this.divContent,
+                    callback: dojoLang.hitch(this, this._showPage),
+                    error: function (error) {
+                        console.log(error.description);
+                    }
+                });
+            }, function(){alert("Error bij aanroepen custom form MF");});
+        },
 
         _setPage: function (pageObj) {
             logger.debug(this.id + '._setPage');
@@ -190,24 +220,18 @@ define([
                 if (pageObj) {
                     var pageContext = new mendix.lib.MxContext();
                     pageContext.setTrackObject(pageObj);
-                    this._form = mx.ui.openForm(this.pageContent, {
-                                    context: pageContext,
-                                    location: "node",
-                                    domNode: this.divContent,
-                                    callback: dojoLang.hitch(this, this._showPage),
-                                    error: function (error) {
-                                        console.log(error.description);
-                                    }
-                                });
+                    
+                    if(this.pageMF != null  && this.pageMF != '')
+                        this._openFormByMF(pageObj, pageContext);
+                    else 
+                        this._openFormByFormProp(pageContext);
+                    
                 } else {
-                    this._form = mx.ui.openForm(this.pageContent, {
-                                    location: "node",
-                                    domNode: this.divContent,
-                                    callback: dojoLang.hitch(this, this._showPage),
-                                    error: function (error) {
-                                        console.log(error.description);
-                                    }
-                                });
+                    if(this.pageMF != null  && this.pageMF != '')
+                        alert("Page microflow is not supported without context");
+                    else 
+                        this._openFormByFormProp();
+                    
                 }
             }
         },
@@ -253,7 +277,7 @@ define([
                 });
             }
         },
-
+                
         _execMf: function (mf, guid, cb, cbfailure) {
             logger.debug(this.id + "._execMf" + (mf ? ": " + mf : ""));
             if (mf && guid) {
