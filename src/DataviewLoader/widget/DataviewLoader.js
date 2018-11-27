@@ -215,7 +215,7 @@ define([
         _showPage: function (mxform) {
             logger.debug(this.id + "._showPage on form");
             
-            if(this.prevForm != null){
+            if(this.prevForm != null && mxform != null){
                 this.prevForm.destroy();
             }
             this.prevForm = mxform;
