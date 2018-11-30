@@ -10,6 +10,12 @@
             <category>Behavior</category>
             <description>The page to load and display.</description>
         </property>
+        <property key="pageMF" type="microflow" required="false">
+            <caption>Result page mf</caption>
+            <category>Behavior</category>
+            <description>Will be used if filled instead of the selected form</description>
+			<returnType type="String" />
+        </property>
         <property key="refreshAction" type="enumeration" defaultValue="No">
             <caption>Reload on refresh</caption>
             <category>Refresh</category>
