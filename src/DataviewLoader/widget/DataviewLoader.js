@@ -118,6 +118,9 @@ define([
         // Attach events to HTML dom elements
         _setupEvents: function () {
             //logger.debug(this.id + "._setupEvents");
+            if(this.fadeContent){
+                dojoClass.add(this.divContent, "loaderfade");
+            }
         },
 
         // Rerender the interface.
@@ -127,10 +130,6 @@ define([
             if (this._contextObj) {
                 dojoStyle.set(this.divContent, "display", "none");
                 dojoStyle.set(this.divLoader, "display", "block");
-                
-                if(this.fadeContent){
-                    dojoClass.add(this.divContent, "loaderfade");
-                }
                 
                 if (this.domNode.offsetParent !== null || !this.visibilityCheck) {
                     this._loadAndShowcontent();
@@ -262,7 +261,10 @@ define([
                 this.subscribe({
                     guid: this._contextObj.getGuid(),
                     callback: dojoLang.hitch(this, function (guid) {
-                        if(this._loadingStarted == false){                            
+                        if(this._loadingStarted == false){
+                            if(this.pageMF) {
+                                this._pageInitiated = false;
+                            }
                             if(this.refreshAction == "Attribute" && this.refreshtAttr && this._contextObj.get(this.refreshtAttr)){
                                 console.log(this.id + ".Refresh triggered on attribute change.");
                                 this._updateRendering();

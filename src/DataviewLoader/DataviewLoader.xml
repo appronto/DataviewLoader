@@ -8,12 +8,12 @@
         <property key="pageContent" type="form" required="true">
             <caption>Result page</caption>
             <category>Behavior</category>
-            <description>The page to load and display.</description>
+            <description>The page to load and display. Result page or Result page mf are required.</description>
         </property>
         <property key="pageMF" type="microflow" required="false">
             <caption>Result page mf</caption>
             <category>Behavior</category>
-            <description>Will be used if filled instead of the selected form</description>
+            <description>Will be used if filled instead of the selected form. Result page or Result page mf are required.</description>
         <returnType type="String" />
         </property>
         <property key="refreshAction" type="enumeration" defaultValue="No">
@@ -29,7 +29,7 @@
         <property key="refreshtAttr" type="attribute" required="false">
             <caption>Reload on attribute</caption>
             <category>Refresh</category>
-            <description>On which attribute </description>
+            <description>On which attribute changes must the reload be triggered?</description>
             <attributeTypes>
                 <attributeType name="Boolean" />
             </attributeTypes>
