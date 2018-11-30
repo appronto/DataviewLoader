@@ -14,7 +14,7 @@
             <caption>Result page mf</caption>
             <category>Behavior</category>
             <description>Will be used if filled instead of the selected form</description>
-			<returnType type="String" />
+        <returnType type="String" />
         </property>
         <property key="refreshAction" type="enumeration" defaultValue="No">
             <caption>Reload on refresh</caption>
