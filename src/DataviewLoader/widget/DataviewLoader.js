@@ -74,7 +74,7 @@ define([
                 
                 this._contextObj = obj;
                 this._resetSubscriptions();
-                this.   _updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
+                this._updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
             } else {
                 // The callback, coming from update, needs to be executed, to let the page know it finished rendering
                 this._executeCallback(callback, "update");
@@ -96,7 +96,14 @@ define([
             console.log(this.id + ".resize");
             // TODO: How to handle tabs and conditional visibility
             if (this.domNode.offsetParent !== null && this.visibilityCheck) {
-                this._loadAndShowcontent();
+                if(this.refreshAction == "Attribute" && this.refreshtAttr && this._contextObj) {
+                    if (this._contextObj.get(this.refreshtAttr))
+                        this._loadAndShowcontent();
+                    else
+                        console.log(this.id + ".resize Skip because " + this.refreshtAttr + " is false");
+                } else {
+                    this._loadAndShowcontent();   
+                }
             }
         },
 
@@ -105,6 +112,10 @@ define([
             logger.debug(this.id + ".uninitialize");
             // Clean up listeners, helper objects, etc. There is no need to remove listeners added with this.connect / this.subscribe / this.own.
             this.active = false;
+			
+			if(this._form != null){
+                this._form.destroy();
+            }
         },
 
         // We want to stop events on a mobile device

@@ -9,9 +9,10 @@ This widget allows you to show the User parts of the page directly data is retri
 ## Typical usage scenario
 
 You have data that is hard in showing on the page because of 
-- Integrations from external systems, 
+- Integrations from external systems
 - Hard data calculations 
 - Custom search functionality
+- Lazy loading
 
 Or it's just a lot of data and you want your users to show the page directly but give feedback that the data will come later.
 
@@ -33,3 +34,6 @@ This widget executes the microflow containing the integration and fetches the re
 - Make a page in a popuplayout containing the dataview of the object where the widget is standing in.
 - Make the microflow that will executes the data retrieval.
 - Configure the widget with the page and optionally the microflow and the return entity.
+- To track conditional visibility enable the property 'Visibility handling'. This is also applied when using tabpages.
+- Take control on the refreshes based on a boolean attribute of the context object. The widget will restart loading when the boolean attribute is set on true.
+- The usage of the dynamic page loading is done with the Result Page Microflow which the the dataview object and must return the page name according the format "module/pagina.page.xml"
