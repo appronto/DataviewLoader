@@ -139,6 +139,11 @@ define([
             logger.debug(this.id + "._updateRendering");
 
             if (this._contextObj) {
+                if(this.loadingText){
+                    var text = "<div class=\"text-center\"><h3 class=\"loaderheader\">"+this.loadingText+"</h3></div>";
+                    this.divLoader.innerHTML = text + this.divLoader.innerHTML;
+                }
+                
                 dojoStyle.set(this.divContent, "display", "none");
                 dojoStyle.set(this.divLoader, "display", "block");
                 
@@ -175,7 +180,7 @@ define([
             }
         },
         _processMicroflowFailure: function (){
-            if(this.errorHandling){
+            if(this.errorText){
                 if(this._pageInitiated)
                     this._form.close();
                 this._pageInitiated = false;

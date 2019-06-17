@@ -61,10 +61,10 @@
             <description>The entity to return via the Microflow when the Asynchronous call is false. (optional; required when defining a Microflow)</description>
         </property>
         
-        <property key="errorHandling" type="boolean" defaultValue="false">
-            <caption>Show error text</caption>
+        <property key="loadingText" type="translatableString" required="false">
+            <caption>Loading text</caption>
             <category>Behavior</category>
-            <description>When the microflow fails, must there be a custom text visible for the user? Otherwise the loader will be visible.</description>
+            <description>Like a microflow call a progress message can be set, now the Dataview loader supports this too!</description>
         </property>
         <property key="errorText" type="translatableString" required="false">
             <caption>Error text</caption>
