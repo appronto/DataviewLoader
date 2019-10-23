@@ -1,0 +1,122 @@
+<widget id="SprintrFeedbackWidget.SprintrFeedback" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Feedback &amp; Collaboration Widget</name>
+    <description>Widget to send feedback and collaborate with others on your Mendix Project</description>
+    <icon>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/7gAOQWRvYmUAZMAAAAAB/9sAhAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAgICAgICAgICAgIDAwMDAwMDAwMDAQEBAQEBAQIBAQICAgECAgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/wAARCAAQABADAREAAhEBAxEB/8QAbQAAAwEAAAAAAAAAAAAAAAAAAgMECgEAAgMAAAAAAAAAAAAAAAAABQYBAwcQAAICAwEBAAMAAAAAAAAAAAMFBAYBAgcRCBMUFxEAAgICAQMEAwEAAAAAAAAAAQIDBAUGERIiEwAhIwcxQhQV/9oADAMBAAIRAxEAPwDZH37uT/nTyorYiUi/pRXpv5tXJzaKCnfQkHMfywcwRWY2Qgr/AEeSvxiWsjMgx/WEUWgSSAkL6lZ7N2qNqGCOMpkvITCrMBFbXjvhWT9JeO5A4HeoALKT6ynctsyGHv1asEJjz5mJqxs4FfIpx8tVJvxFZK8SRLKq/IihTIrN6Hgva7beHtnUtq8Zh1EjaPL6QggNI5aL89KNxb4rHMnFq0/KGy9DjrcZlso6wEj1jKNqUkYAw+abjdLzuN1iHb92ZKDZRTJUrc+SaSIeydCDgLEPy88pQO5bxLIAAAWmfZNnYdhvYClA13Zq84GQ6HAo4gcfFSksEHz3QnfLFXjkIldhK0CBPTu6fNZ+lvkM9c5f63ttPkr9utzpAZE3iVAyLBLMPjabI9K/VL9bA4ErjttYpmYgnNIJIJ+voLadLr6zhdhO67FXjyeRoIWqV7HfC07e0fVEOFEMXvLL+8pVImfpckX/AGV9eZHbvFj8Xat18ndkMc2RVgJcdRA5nXHDjx17lnsrxzhDKiPJMXYxKpl4T8ySucWF22dvLAXpCWZGUf2RbIFDl915zpqQtTF2hDgZK1a7/UY2xVUprtEEzIOOKUKSLErcWr1t29rnqsccMUH+POpf+JlJWhZ5+X+F+RJBXlPEqQq5hBZo2jbxhvQ367+pn1O/NNZntDZKrrGMmj8Pl6XHwf6sZBhtXYB1V5LLRiwwRJkmTzMg/9k=</icon>
+    <properties>
+        <!-- DATA SOURCE -->
+        <property key="entity" type="entity" required="false">
+            <caption>User</caption>
+            <category>Data Source</category>
+            <description>If set, the user name and email address properties are used to prefill the user’s identity in the ‘Feedback’ submit form.</description>
+        </property>
+        <property key="usernameattr" type="attribute" entityProperty="entity" required="false">
+            <caption>User name attribute</caption>
+            <category>Data Source</category>
+            <description>Used to determine the user name of the user when sharing the application.</description>
+            <attributeTypes>
+                 <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <property key="emailattr" type="attribute" entityProperty="entity" required="false">
+            <caption>Email attribute</caption>
+            <category>Data Source</category>
+            <description>Used to determine the email address of the user when sharing the application.</description>
+            <attributeTypes>
+                 <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <property key="allowSprintrOverride" type="boolean" defaultValue="true">
+            <caption>Dev Portal identification</caption>
+            <category>Data Source</category>
+            <description>When a user is not defined in the app or not logged in, the widget can identify the user from the Developer Portal. Setting this to ‘No’ only enables guest mode.</description>
+        </property>
+        <!-- PROJECT CONFIGURATION -->
+        <property key="sprintrapp" type="string" required="true" defaultValue="">
+            <caption>App ID</caption>
+            <category>Project</category>
+            <description>The App ID is a hash that uniquely identifies your app project. You can find this ID in Settings > General in the Developer Portal.</description>
+        </property>
+        <property key="appName" type="string" required="true" defaultValue="">
+            <caption>App name</caption>
+            <category>Project</category>
+            <description>The app project name used when sharing your app.</description>
+        </property>
+        <property key="allowSshot" type="boolean" defaultValue="true">
+            <caption>Allow screenshots</caption>
+            <category>Project</category>
+            <description>If you are not allowed to send screenshots when submitting feedback (for legal reasons, etc.), set this to ‘No’.</description>
+        </property>
+        <property key="hideLogo" type="boolean" defaultValue="false">
+            <caption>Hide Mendix logo</caption>
+            <category>Project</category>
+            <description>For customized branding, you can remove the Mendix logo from the widget.</description>
+        </property>
+        <!-- COLLABORATION -->
+        <property key="allowEdit" type="boolean" defaultValue="true">
+            <caption>Edit button</caption>
+            <category>Collaboration</category>
+            <description>Add the ‘Edit’ button to the widget menu for editing in the Web Modeler.</description>
+        </property>
+        <property key="allowMobileShare" type="boolean" defaultValue="true">
+            <caption>Mobile view button</caption>
+            <category>Collaboration</category>
+            <description>Add the ‘Mobile view’ button to the widget menu for opening your application via the Mendix mobile app.</description>
+        </property>
+        <property key="allowNormalShare" type="boolean" defaultValue="true">
+            <caption>Share button</caption>
+            <category>Collaboration</category>
+            <description>Add the ‘Share’ button to the widget menu for sharing your Mendix application.</description>
+        </property>
+        <!-- ADVANCED -->
+        <property key="sprintrserver" type="string" required="true" defaultValue="https://sprintr.home.mendix.com/">
+            <caption>Feedback server location</caption>
+            <category>Advanced</category>
+            <description>You can configure a new feedback server location if necessary, but Mendix recommends leaving this set to the default at https://sprintr.home.mendix.com/.</description>
+        </property>
+        <property key="scriptLocation" type="string" required="true" defaultValue="https://feedback-static.mendix.com/">
+            <caption>Script location</caption>
+            <category>Advanced</category>
+            <description>The location from where the feedback core is loaded. Only change this for debugging purposes. Otherwise, keep this set to the default at https://feedback-static.mendix.com/.</description>
+        </property>
+        <property key="screenshotForeignObjectRendering" type="boolean" defaultValue="true">
+            <caption>Screenshot foreign rendering</caption>
+            <category>Advanced</category>
+            <description>This is enabled by default and an option in HTML2Canvas. Only disable this when you experience problems with creating screenshots.</description>
+        </property>
+        <property key="idTokenProviderMF" type="microflow" required="false">
+            <caption>ID token provider</caption>
+            <category>Advanced</category>
+            <description>Microflow that will return the ID token. Required by App Switcher.</description>
+            <returnType type="String" />
+        </property>
+        <property key="hasCreateAppButton" type="boolean" defaultValue="true">
+            <caption>Has Create New App button</caption>
+            <category>Advanced</category>
+            <description>App Switcher modal will provide a button that allows the user to create a new Mendix app.</description>
+        </property>
+        <property key="accessTokenProviderMF" type="microflow" required="false">
+            <caption>Access token provider</caption>
+            <category>Advanced</category>
+            <description>Microflow that fetches the access token. Required by Invite.</description>
+            <returnType type="String" />
+        </property>
+        <property key="renewAccessTokenMF" type="microflow" required="false">
+            <caption>Renew access token</caption>
+            <category>Advanced</category>
+            <description>Microflow that renews the access token when current one is expired. Required by Invite.</description>
+            <returnType type="String" />
+        </property>
+        <!-- PRODUCTION -->
+        <property key="inProductionMf" type="microflow" required="false">
+            <caption>Production microflow</caption>
+            <category>Production</category>
+            <description>An optional microflow that can be used to determine if the widget runs in production (for example, by using a constant). The return type for this microflow is a Boolean. In production, the ‘Edit’ and ‘Mobile view’ buttons are disabled by default, ‘Feedback’ is always enabled, and ‘Share’ is optional.</description>
+            <returnType type="Boolean" />
+        </property>
+        <property key="shareInProduction" type="boolean" defaultValue="false">
+            <caption>Share in production</caption>
+            <category>Production</category>
+            <description>Enable or disable sharing of the app in production.</description>
+        </property>
+    </properties>
+</widget>

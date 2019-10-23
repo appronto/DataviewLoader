@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Listview
+
+   Default Mendix Listview Widget. The list view shows a list of objects arranged vertically. Each object is shown using a template
+========================================================================== */
+.mx-listview {
+	// Clear search button (overrides load more button stying)
+	.mx-button.mx-listview-clear-button {
+
+	}
+	// Load more button
+	> .mx-button {
+		color: $brand-primary!important;
+	background-color:transparent!important;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+
+	&:hover {
+	background: $brand-default!important;
+	color: $font-base-color;
+	text-decoration: none;
+	}
+	}
+	.mx-listview-list {
+		
+	}
+	.mx-listview-item {
+		&:hover {
+			
+		}
+		&.selected {
+
+			&:hover {
+				
+			}
+		}
+		&:nth-child(2n+1) {
+			
+		}
+	}
+}
+
+
+/* ==========================================================================
+   Listview Hover
+
+   Default Mendix Listview Widget with hover
+========================================================================== */
+.listview-hover.mx-listview {
+	.mx-listview-item {
+		&:hover,
+		&:active {
+			
+		}
+	}
+}
+
+
+/* ==========================================================================
+   Listview Lined
+
+   Default Mendix Listview Widget with only border bottom in listview item
+========================================================================== */
+.listview-lined.mx-listview {
+	.mx-listview-item {
+		&:first-child {
+			
+		}
+		&:last-child {
+	
+		}
+	}
+}
+
+.listview-lined.mx-listview .mx-listview-searchbar {
+	margin-bottom: 40px;
+}
+
+
+/* ==========================================================================
+   Listview Striped
+
+   Default Mendix Listview Widget with striped listview items
+========================================================================== */
+.listview-striped.mx-listview {
+	.mx-listview-item:nth-child(2n+1) {
+		
+	}
+}
+
+
+/* ==========================================================================
+   Listview Seperated
+
+   Default Mendix Listview Widget with listview items seperated
+========================================================================== */
+.listview-seperated.mx-listview {
+	.mx-listview-item {
+
+	}
+}
+
+
+/* ==========================================================================
+   Listview Stylingless
+
+   Default Mendix Listview Widget with listview items seperated
+========================================================================== */
+.listview-stylingless.mx-listview {
+	.mx-listview-item {
+		
+		&:hover {
+			
+		}
+		&.selected {
+
+			&:hover {
+				
+			}
+		}
+	}
+}	
+
+/* ==========================================================================
+	Listview Colunm Header
+
+	Custom made Column header where the searchbar is above.
+===========================================================================*/	
+
+.mx-layoutcontainer .mx-placeholder .mx-layoutgrid .mx-layoutgrid .listviewHeaderColumn {
+	width: 100%;
+	position: absolute;
+	margin-top: -48px;
+}

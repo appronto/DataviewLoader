@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Special styles for presenting Page Template Dashboard
+========================================================================== */
+.page-dashboard {
+	background: $bg-color;
+	.chartjs-node {
+		/* Styles here */
+	}
+}
+.page-dashboard-default {
+	.card {
+		/* Styles here */
+	}
+}
+.page-dashboard-mytasks {
+	.card {
+		/* Styles here */
+	}
+}
+.page-dashboard-actions {
+	/* Styles here */
+}
+.page-dashboard-actions-tasks {
+	/* Styles here */
+}
+
+.pageheader.pageheader-fullwidth {
+	//margin-bottom: 24px;
+}

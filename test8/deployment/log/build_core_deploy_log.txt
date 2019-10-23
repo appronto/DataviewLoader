@@ -1,0 +1,10 @@
+Buildfile: C:\Mendix\Widgets\DataviewLoader\test8\deployment\build_core.xml
+
+deploy:
+     [copy] Copying 28 files to C:\Mendix\Widgets\DataviewLoader\test8\deployment
+     [copy] Copying 43 files to C:\Mendix\Widgets\DataviewLoader\test8\deployment\model\lib\userlib
+     [copy] Copying 8 files to C:\Mendix\Widgets\DataviewLoader\test8\deployment\model\resources
+
+BUILD SUCCESSFUL
+Total time: 1 second
+

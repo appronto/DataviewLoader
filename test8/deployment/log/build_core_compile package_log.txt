@@ -1,0 +1,18 @@
+Buildfile: C:\Mendix\Widgets\DataviewLoader\test8\deployment\build_core.xml
+
+compile:
+    [javac] Compiling 163 source files to C:\Mendix\Widgets\DataviewLoader\test8\deployment\run\bin
+    [javac] C:\Mendix\Widgets\DataviewLoader\test8\javasource\communitycommons\Misc.java:590: warning: [dep-ann] deprecated item is not annotated with @Deprecated
+    [javac] 	public static boolean objectsAreEqual(Object left, Object right) {
+    [javac] 	                      ^
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] 1 warning
+
+package:
+      [jar] Building jar: C:\Mendix\Widgets\DataviewLoader\test8\deployment\model\bundles\project.jar
+
+BUILD SUCCESSFUL
+Total time: 10 seconds
+
+
