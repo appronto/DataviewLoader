@@ -151,23 +151,27 @@ define([
         // Rerender the interface.
         _updateRendering: function (callback) {
             logger.debug(this.id + "._updateRendering");
+            
+            try{
+                if (this._contextObj) {
+                    if (this.loadingText && this.divLoader.innerHTML.indexOf(this.loadingText) === -1) {
+                        var text = "<div class=\"text-center\"><h3 class=\"loaderheader\">" + this.loadingText + "</h3></div>";
+                        this.divLoader.innerHTML = text + this.divLoader.innerHTML;
+                    }
 
-            if (this._contextObj) {
-                if (this.loadingText && this.divLoader.innerHTML.indexOf(this.loadingText) === -1) {
-                    var text = "<div class=\"text-center\"><h3 class=\"loaderheader\">" + this.loadingText + "</h3></div>";
-                    this.divLoader.innerHTML = text + this.divLoader.innerHTML;
+                    dojoStyle.set(this.divContent, "display", "none");
+                    dojoStyle.set(this.divLoader, "display", "block");
+
+                    if (this.domNode.offsetParent !== null || !this.visibilityCheck) {
+                        this._loadAndShowcontent();
+                    }
                 }
 
-                dojoStyle.set(this.divContent, "display", "none");
-                dojoStyle.set(this.divLoader, "display", "block");
-
-                if (this.domNode.offsetParent !== null || !this.visibilityCheck) {
-                    this._loadAndShowcontent();
-                }
+                // The callback, coming from update, needs to be executed, to let the page know it finished rendering
+                this._executeCallback(callback, "_updateRendering");
+            } catch(error){
+                console.log(this.id + "._updateRendering error occurred: " + JSON.stringify(error));
             }
-
-            // The callback, coming from update, needs to be executed, to let the page know it finished rendering
-            this._executeCallback(callback, "_updateRendering");
         },
 
         _loadAndShowcontent: function () {

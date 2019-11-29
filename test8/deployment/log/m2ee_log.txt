@@ -1,3 +1,8 @@
 [rtlauncher:container$] INFO Evictions for component 'project-userlib':
 Evicted C:\Mendix\Widgets\DataviewLoader\test8\deployment\model\lib\userlib\commons-logging-1.1.jar by C:\Mendix\Widgets\DataviewLoader\test8\deployment\model\lib\userlib\commons-logging-1.2.jar.
 [rtlauncher:container$] INFO Container start took 2794. Ready to accept admin requests.
+Oct 23, 2019 11:03:26 AM org.hsqldb.persist.Logger logInfoEvent
+INFO: Database closed
+
+
+
