@@ -27,6 +27,7 @@
     "testProjectFileName": "Test.mpr"
   },
   "scripts": {
+    "dev": "node ./node_modules/gulp/bin/gulp",
     "build": "node ./node_modules/gulp/bin/gulp build",
     "version": "node ./node_modules/gulp/bin/gulp version",
     "icon": "node ./node_modules/gulp/bin/gulp icon",
