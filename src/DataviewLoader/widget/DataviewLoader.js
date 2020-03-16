@@ -75,10 +75,10 @@ define([
 
                 this._contextObj = obj;
                 this._resetSubscriptions();
-                this._updateRendering(callback); // We're passing the callback to updateRendering to be called after DOM-manipulation
-            } else {
-                // The callback, coming from update, needs to be executed, to let the page know it finished rendering
-                this._executeCallback(callback, "update");
+                this._updateRendering();
+            }
+            if (callback) {
+                callback();
             }
         },
 
@@ -153,7 +153,7 @@ define([
         },
 
         // Rerender the interface.
-        _updateRendering: function (callback) {
+        _updateRendering: function () {
             logger.debug(this.id + "._updateRendering");
             
             try{
@@ -170,9 +170,6 @@ define([
                         this._loadAndShowcontent();
                     }
                 }
-
-                // The callback, coming from update, needs to be executed, to let the page know it finished rendering
-                this._executeCallback(callback, "_updateRendering");
             } catch(error){
                 console.log(this.id + "._updateRendering error occurred: " + JSON.stringify(error));
             }
@@ -334,13 +331,6 @@ define([
                     callback: (cb && typeof cb === "function" ? dojoLang.hitch(this, cb) : null),
                     error: (cbfailure && typeof cbfailure === "function" ? dojoLang.hitch(this, cbfailure) : null)
                 });
-            }
-        },
-
-        _executeCallback: function (cb, from) {
-            logger.debug(this.id + "._executeCallback" + (from ? " from " + from : ""));
-            if (cb && typeof cb === "function") {
-                cb();
             }
         }
     });
