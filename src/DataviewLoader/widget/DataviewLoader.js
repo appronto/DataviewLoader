@@ -68,15 +68,12 @@ define([
 
         // mxui.widget._WidgetBase.update is called when context is changed or initialized. Implement to re-render and / or fetch data.
         update: function (obj, callback) {
-            if (this._contextObj !== obj) {
-                console.log(this.id + ".update on new object");
-                this._loadingStarted = false;
-                this._pageInitiated = false;
-
-                this._contextObj = obj;
-                this._resetSubscriptions();
-                this._updateRendering();
-            }
+            console.log(this.id + ".update on new object");
+            this._loadingStarted = false;
+            this._pageInitiated = false;
+            this._contextObj = obj;
+            this._resetSubscriptions();
+            this._updateRendering();
             if (callback) {
                 callback();
             }
