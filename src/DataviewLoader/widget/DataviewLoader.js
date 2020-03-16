@@ -4,7 +4,7 @@
     ========================
 
     @file      : DataviewLoader.js
-    @version   : 1.3.1
+    @version   : 2.2.1
     @author    : JvdGraaf
     @date      : Mon, 24 Apr 2017 15:02:42 GMT
     @copyright : Appronto
@@ -12,17 +12,16 @@
 
 */
 define([
-  "dojo/_base/declare",
-  "mxui/widget/_WidgetBase",
-  "dijit/_TemplatedMixin",
-  "dojo/dom-style",
-  "dojo/dom-class",
-  "dojo/_base/lang",
-  "dojo/_base/event",
-
-  "dojo/text!DataviewLoader/widget/template/DataviewLoader.html"
+    "dojo/_base/declare",
+    "mxui/widget/_WidgetBase",
+    "dijit/_TemplatedMixin",
+    "dojo/dom-style",
+    "dojo/dom-class",
+    "dojo/_base/lang",
+    "dojo/_base/event",
+    "dojo/text!DataviewLoader/widget/template/DataviewLoader.html"
 ], function (declare, _WidgetBase, _TemplatedMixin, dojoStyle, dojoClass, dojoLang, dojoEvent, widgetTemplate) {
-    "use strict";
+"use strict";
 
     return declare("DataviewLoader.widget.DataviewLoader", [_WidgetBase, _TemplatedMixin], {
         templateString: widgetTemplate,
@@ -32,7 +31,6 @@ define([
         divLoader: null,
 
         // Internal variables. Non-primitives created in the prototype are shared between all widget instances.
-        _handles: null,
         _contextObj: null,
         _loadingStarted: false,
         _pageInitiated: false,
@@ -43,10 +41,10 @@ define([
 
         postCreate: function () {
             logger.debug(this.id + ".postCreate");
-
             this._updateRendering();
             this._setupEvents();
         },
+
         update: function (obj, callback) {
             console.log(this.id + ".update on new object");
             this._loadingStarted = false;
@@ -64,12 +62,13 @@ define([
             // TODO: How to handle tabs and conditional visibility
             if (this.domNode.offsetParent !== null && this.visibilityCheck) {
                 if (this.refreshAction == "Attribute" && this.refreshtAttr && this._contextObj) {
-                    if (this._contextObj.get(this.refreshtAttr))
-                        this._loadAndShowcontent();
-                    else
+                    if (this._contextObj.get(this.refreshtAttr)) {
+                        this._loadAndShowContent();
+                    } else {
                         console.log(this.id + ".resize Skip because " + this.refreshtAttr + " is false");
+                    }
                 } else {
-                    this._loadAndShowcontent();
+                    this._loadAndShowContent();
                 }
             }
         },
@@ -107,7 +106,6 @@ define([
 
         _updateRendering: function () {
             logger.debug(this.id + "._updateRendering");
-            
             try{
                 if (this._contextObj) {
                     if (this.loadingText && this.divLoader.innerHTML.indexOf(this.loadingText) === -1) {
@@ -119,7 +117,7 @@ define([
                     dojoStyle.set(this.divLoader, "display", "block");
 
                     if (this.domNode.offsetParent !== null || !this.visibilityCheck) {
-                        this._loadAndShowcontent();
+                        this._loadAndShowContent();
                     }
                 }
             } catch(error){
@@ -127,8 +125,8 @@ define([
             }
         },
 
-        _loadAndShowcontent: function () {
-            logger.debug(this.id + "._loadAndShowcontent");
+        _loadAndShowContent: function () {
+            logger.debug(this.id + "._loadAndShowContent");
             if (this._loadingStarted == false) {
                 this._loadingStarted = true;
                 if (this._contextObj && this.loadingMF) {
@@ -140,20 +138,23 @@ define([
         },
 
         _processMicroflowCallback: function (objs) {
-            logger.debug(this.id + '._processMicroflowCallback');
+            logger.debug(this.id + "._processMicroflowCallback");
             if (this.active) {
-                if (this.asyncCall)
+                if (this.asyncCall) {
                     this._setPage(this._contextObj);
-                else
+                } else {
                     this._setPage(objs[0]);
+                }
             } else {
                 console.info(this.id + "._processMicroflowCallback Skip loading because widget is destroyed.");
             }
         },
+
         _processMicroflowFailure: function () {
             if (this.errorText) {
-                if (this._pageInitiated)
+                if (this._pageInitiated) {
                     this._form.close();
+                }
                 this._pageInitiated = false;
                 this.divContent.innerHTML = "<div class=\"text-center\"><h3 class=\"loaderheader\">" + this.errorText + "</h3></div>";
 
@@ -171,8 +172,9 @@ define([
                 }
             };
 
-            if (pageContext)
+            if (pageContext) {
                 props.context = pageContext;
+            }
             this._form = mx.ui.openForm(this.pageContent, props);
         },
 
@@ -193,7 +195,7 @@ define([
         },
 
         _setPage: function (pageObj) {
-            logger.debug(this.id + '._setPage');
+            logger.debug(this.id + "._setPage");
 
             if (this._pageInitiated) {
                 if (this._loadingStarted) {
@@ -209,17 +211,17 @@ define([
                     var pageContext = new mendix.lib.MxContext();
                     pageContext.setTrackObject(pageObj);
 
-                    if (this.pageMF != null && this.pageMF != '')
+                    if (this.pageMF != null && this.pageMF != "") {
                         this._openFormByMF(pageObj, pageContext);
-                    else
+                    } else {
                         this._openFormByFormProp(pageContext);
-
+                    }
                 } else {
-                    if (this.pageMF != null && this.pageMF != '')
-                    mx.ui.error("Page microflow is not supported without context");
-                    else
+                    if (this.pageMF != null && this.pageMF != "") {
+                        mx.ui.error("Page microflow is not supported without context");
+                    } else {
                         this._openFormByFormProp();
-
+                    }
                 }
             }
         },
