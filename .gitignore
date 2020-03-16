@@ -2,10 +2,6 @@ test/javasource/
 test/deployment/
 test/.classpath
 test/.project
-test8/javasource/
-test8/deployment/
-test8/.classpath
-test8/.project
 *.launch
 *.tmp
 *.lock

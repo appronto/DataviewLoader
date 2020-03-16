@@ -1,1 +1,0 @@
-define(["DataviewLoader/widget/DataviewLoader", "formatstring/widget/formatstring", "SprintrFeedbackWidget/SprintrFeedback"], {});
