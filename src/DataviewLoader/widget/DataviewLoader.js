@@ -233,7 +233,7 @@ define([
                     }
                 });
             }, function () {
-                alert("Error bij aanroepen custom form MF");
+                mx.ui.error("Error calling custom form microflow");
             });
         },
 
@@ -261,7 +261,7 @@ define([
 
                 } else {
                     if (this.pageMF != null && this.pageMF != '')
-                        alert("Page microflow is not supported without context");
+                    mx.ui.error("Page microflow is not supported without context");
                     else
                         this._openFormByFormProp();
 
