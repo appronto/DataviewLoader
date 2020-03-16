@@ -50,6 +50,7 @@ define([
         _form: null,
         active: true,
         prevForm: null,
+        refreshHandler: null,
         // dojo.declare.constructor is called to construct the widget instance. Implement to initialize non-primitive properties.
         constructor: function () {
             //logger.debug(this.id + ".constructor");
@@ -112,7 +113,10 @@ define([
             logger.debug(this.id + ".uninitialize");
             // Clean up listeners, helper objects, etc. There is no need to remove listeners added with this.connect / this.subscribe / this.own.
             this.active = false;
-
+            if (this.refreshHandler) {
+                clearInterval(this.refreshHandler);
+                this.refreshHandler = null;
+            }
             if (this._form != null) {
                 this._form.destroy();
             }
@@ -135,7 +139,7 @@ define([
 
             // Set refreshing each time
             if (this.refreshTime > 0) {
-                setInterval(dojoLang.hitch(this, function () {
+                this.refreshHandler = setInterval(dojoLang.hitch(this, function () {
                     if (this._loadingStarted == false) {
                         if (this.pageMF) {
                             this._pageInitiated = false;
