@@ -5,8 +5,7 @@
   "license": "Apache 2",
   "author": "JvdGraaf",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
@@ -24,10 +23,11 @@
   },
   "generatorVersion": "2.0.0",
   "paths": {
-    "testProjectFolder": "./test/",
+    "testProjectFolder": "./test8/",
     "testProjectFileName": "Test.mpr"
   },
   "scripts": {
+    "dev": "node ./node_modules/gulp/bin/gulp",
     "build": "node ./node_modules/gulp/bin/gulp build",
     "version": "node ./node_modules/gulp/bin/gulp version",
     "icon": "node ./node_modules/gulp/bin/gulp icon",

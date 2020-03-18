@@ -1,9 +1,0 @@
-Buildfile: C:\Mendix\Widgets\DataviewLoader\test8\deployment\build_core.xml
-
-clean:
-   [delete] Deleting directory C:\Mendix\Widgets\DataviewLoader\test8\deployment\model
-
-BUILD SUCCESSFUL
-Total time: 0 seconds
-
-

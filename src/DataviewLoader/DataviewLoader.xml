@@ -3,7 +3,6 @@
     <name>DataviewLoader</name>
     <description>Change the loading experience to the user to just load parts of the page with the usage of this widget.</description>
     <icon>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACN0lEQVRYR+3Xy6tOURjH8c9hQDF0nchESAxcBpS/wTXXMnGdG2As/gS5DJQTRXKNv0BJSCFkIjOOCckI0aN3a7Vae7/r7DdlcNZ0PZfvftZaz+/ZY/qvLTiLMRzE7T6hwrnv+oh5A+cJzO8TaBSAX1nCXrF6OQ0S/zOA1TiPWTiBWy2lrQXYiZP4gv14nsYrVeAJ1gyMfmIvrhYgagD24SKmDfwfYsMwgNdYlhi1QXxILl5cyAUZZJ48tl9g1TCAzbiO6RnE9uw4NmXP8G5ivwuXky+Pre+I2PeHAcT+boxnEG+wvPKpvceixPYHduBm7t/1CvbgUgIRd2NdJcCrBDaSx0W8UfId9gy34RS+4gieVgKsxxnMxDHcafMbBlCZr7/ZFEBUoFG1RliaesbbPtxX5ZJD2YpzmJMd1KdQ0QBIVS0/zGg2C/uf8B/PSJQnb0JOBEBI6dyWJKUON1mezvgBEB0txKd0BDFopB1ussnDvjP+1Cv47ysQqnYa33AAjyovwUZcwAwcbdOBiNVVgVzPnyGmpZoVyrl0YNg11LQClIaJULgVNdnxDosT21aIUgVCOq8UhonomPcKHS5Gs/y/ILrftYqhpliBt1iSJIpJJqDyYSLtcKX/gvCJqSidrF5iZVrFUgUeY+3AqC15bNcMpTnEA8QF/btKADE0xi/XbBzPZ7jEtwYgzGMOjLH8Mw4hht5OgMp7VlWBobFGaUS1FeiEGAUgVbneqjkKQKNyzTPspZq/AZS8dI6xqepWAAAAAElFTkSuQmCC</icon>
-
     <properties>
         <property key="pageContent" type="form" required="true">
             <caption>Result page</caption>
@@ -65,7 +64,6 @@
             <category>Datasource</category>
             <description>The entity to return via the Microflow when the Asynchronous call is false. (optional; required when defining a Microflow)</description>
         </property>
-        
         <property key="loadingText" type="translatableString" required="false">
             <caption>Loading text</caption>
             <category>Behavior</category>
