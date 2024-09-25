@@ -9,5 +9,6 @@ https://github.com/appronto/DataviewLoader/releases/download/4.0/DataViewLoaderA
 - Default out-of-the-box Mendix components 
     A listview + nanoflow + microflow
 - Skeleton widget: https://marketplace.mendix.com/link/component/119807
+- In View Content Renderer: https://marketplace.mendix.com/link/component/218777
 
 Both solutions needs a boolean to determine if loading is completed.
